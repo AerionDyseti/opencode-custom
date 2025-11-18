@@ -17,6 +17,7 @@ import { LSPServer } from "../lsp/server"
 import { BunProc } from "@/bun"
 import { Installation } from "@/installation"
 import { ConfigMarkdown } from "./markdown"
+import { Bus } from "../bus"
 
 export namespace Config {
   const log = Log.create({ service: "config" })
@@ -793,8 +794,13 @@ export namespace Config {
   export async function update(config: Info) {
     const filepath = path.join(Instance.directory, "config.json")
     const existing = await loadFile(filepath)
-    await Bun.write(filepath, JSON.stringify(mergeDeep(existing, config), null, 2))
+    const merged = mergeDeep(existing, config)
+    await Bun.write(filepath, JSON.stringify(merged, null, 2))
     await Instance.dispose()
+
+    // Import here to avoid circular dependency
+    const { Config: ConfigIndex } = await import("./index")
+    await Bus.publish(ConfigIndex.Event.Updated, { config: merged })
   }
 
   export async function directories() {
