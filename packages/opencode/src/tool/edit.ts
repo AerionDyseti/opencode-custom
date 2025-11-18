@@ -44,7 +44,10 @@ export const EditTool = Tool.define("edit", {
     const filePath = path.isAbsolute(params.filePath) ? params.filePath : path.join(Instance.directory, params.filePath)
     if (!Filesystem.contains(Instance.directory, filePath)) {
       const parentDir = path.dirname(filePath)
-      if (agent.permission.external_directory === "ask") {
+      // Secure default: only allow if explicitly set to "allow" or "ask"
+      if (agent.permission.external_directory === "allow") {
+        // Explicitly allowed, proceed
+      } else if (agent.permission.external_directory === "ask") {
         await Permission.ask({
           type: "external_directory",
           pattern: parentDir,
@@ -57,6 +60,9 @@ export const EditTool = Tool.define("edit", {
             parentDir,
           },
         })
+      } else {
+        // Default deny for "deny", undefined, null, or any other value
+        throw new Error(`Permission denied: Cannot edit file outside working directory: ${filePath}`)
       }
     }
 
