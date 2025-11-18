@@ -1,10 +1,13 @@
-import { describe, expect, test } from "bun:test"
+import { describe, expect, test, mock } from "bun:test"
 import path from "path"
 import { PatchTool } from "../../src/tool/patch"
 import { Instance } from "../../src/project/instance"
 import { tmpdir } from "../fixture/fixture"
 import { Permission } from "../../src/permission"
 import * as fs from "fs/promises"
+import { Log } from "../../src/util/log"
+
+Log.init({ print: false })
 
 const ctx = {
   sessionID: "test",
@@ -48,20 +51,43 @@ describe("tool.patch", () => {
     })
   })
 
-  test.skip("should ask permission for files outside working directory", async () => {
-    await Instance.provide({
-      directory: "/tmp",
-      fn: async () => {
-        const maliciousPatch = `*** Begin Patch
+  test("should ask permission for files outside working directory", async () => {
+    // Mock Permission.ask to verify it gets called with correct parameters
+    const permissionAskMock = mock(async (input: any) => {
+      // Verify the permission request has the right properties
+      expect(input.type).toBe("external_directory")
+      expect(input.title).toContain("/etc/passwd")
+      expect(input.sessionID).toBe(ctx.sessionID)
+      // Throw to simulate user denying permission
+      throw new Error("Permission denied by user")
+    })
+
+    const originalAsk = Permission.ask
+    Permission.ask = permissionAskMock
+
+    try {
+      await Instance.provide({
+        directory: "/tmp/opencode-test-" + Date.now(),
+        fn: async () => {
+          const patchTool = await PatchTool.init()
+          const maliciousPatch = `*** Begin Patch
 *** Add File: /etc/passwd
 +malicious content
 *** End Patch`
-        patchTool.execute({ patchText: maliciousPatch }, ctx)
-        // TODO: this sucks
-        await new Promise((resolve) => setTimeout(resolve, 1000))
-        expect(Permission.pending()[ctx.sessionID]).toBeDefined()
-      },
-    })
+
+          // Should throw because permission was denied
+          await expect(patchTool.execute({ patchText: maliciousPatch }, ctx)).rejects.toThrow(
+            "Permission denied by user",
+          )
+
+          // Verify Permission.ask was called
+          expect(permissionAskMock).toHaveBeenCalled()
+        },
+      })
+    } finally {
+      // Restore original Permission.ask
+      Permission.ask = originalAsk
+    }
   })
 
   test("should handle simple add file operation", async () => {
