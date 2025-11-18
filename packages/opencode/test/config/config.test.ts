@@ -336,7 +336,7 @@ test("updates config and writes to file", async () => {
       const newConfig = { model: "updated/model" }
       await Config.update(newConfig as any)
 
-      const writtenConfig = JSON.parse(await Bun.file(path.join(tmp.path, "config.json")).text())
+      const writtenConfig = JSON.parse(await Bun.file(path.join(tmp.path, "opencode.json")).text())
       expect(writtenConfig.model).toBe("updated/model")
     },
   })
@@ -438,7 +438,7 @@ test("Config.update event contains merged config", async () => {
     directory: tmp.path,
     fn: async () => {
       // Write initial config
-      const configPath = path.join(tmp.path, "config.json")
+      const configPath = path.join(tmp.path, "opencode.json")
       await fs.writeFile(configPath, JSON.stringify({ theme: "dark" }))
 
       // Create a mock subscriber
