@@ -16,7 +16,7 @@ import { Log } from "../util/log"
 import { SessionLock } from "./lock"
 import { ProviderTransform } from "@/provider/transform"
 import { SessionRetry } from "./retry"
-import { Config } from "@/config/config"
+import { Config } from "@/config"
 
 export namespace SessionCompaction {
   const log = Log.create({ service: "session.compaction" })

@@ -1,7 +1,8 @@
-import { test, expect } from "bun:test"
-import { Config } from "../../src/config/config"
+import { test, expect, mock } from "bun:test"
+import { Config } from "../../src/config"
 import { Instance } from "../../src/project/instance"
 import { tmpdir } from "../fixture/fixture"
+import { Bus } from "../../src/bus"
 import path from "path"
 import fs from "fs/promises"
 import { pathToFileURL } from "url"
@@ -400,6 +401,63 @@ test("resolves scoped npm plugins in config", async () => {
       const scopedEntry = pluginEntries.find((entry) => entry === expected)
       expect(scopedEntry).toBeDefined()
       expect(scopedEntry?.includes("/node_modules/@scope/plugin/")).toBe(true)
+    },
+  })
+})
+
+test("Config.update emits config.updated event", async () => {
+  await using tmp = await tmpdir()
+  await Instance.provide({
+    directory: tmp.path,
+    fn: async () => {
+      // Create a mock subscriber to capture the event
+      const eventMock = mock(async (event: any) => {
+        expect(event.properties.config).toBeDefined()
+        expect(event.properties.config.model).toBe("test/model")
+      })
+
+      // Subscribe to the config.updated event
+      const unsubscribe = await Bus.subscribe(Config.Event.Updated, eventMock)
+
+      try {
+        // Update config
+        await Config.update({ model: "test/model" })
+
+        // Verify the event was emitted
+        expect(eventMock).toHaveBeenCalled()
+      } finally {
+        unsubscribe()
+      }
+    },
+  })
+})
+
+test("Config.update event contains merged config", async () => {
+  await using tmp = await tmpdir()
+  await Instance.provide({
+    directory: tmp.path,
+    fn: async () => {
+      // Write initial config
+      const configPath = path.join(tmp.path, "config.json")
+      await fs.writeFile(configPath, JSON.stringify({ theme: "dark" }))
+
+      // Create a mock subscriber
+      const eventMock = mock(async (event: any) => {
+        // Event should contain both existing and new config
+        expect(event.properties.config.theme).toBe("dark")
+        expect(event.properties.config.model).toBe("new/model")
+      })
+
+      const unsubscribe = await Bus.subscribe(Config.Event.Updated, eventMock)
+
+      try {
+        // Update with new config
+        await Config.update({ model: "new/model" })
+
+        expect(eventMock).toHaveBeenCalled()
+      } finally {
+        unsubscribe()
+      }
     },
   })
 })

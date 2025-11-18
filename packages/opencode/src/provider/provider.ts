@@ -1,6 +1,6 @@
 import z from "zod"
 import path from "path"
-import { Config } from "../config/config"
+import { Config } from "../config"
 import { mergeDeep, sortBy } from "remeda"
 import { NoSuchModelError, type LanguageModel, type Provider as SDK } from "ai"
 import { Log } from "../util/log"

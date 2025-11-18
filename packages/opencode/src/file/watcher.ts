@@ -4,7 +4,7 @@ import { Flag } from "../flag/flag"
 import { Instance } from "../project/instance"
 import { Log } from "../util/log"
 import { FileIgnore } from "./ignore"
-import { Config } from "../config/config"
+import { Config } from "../config"
 // @ts-ignore
 import { createWrapper } from "@parcel/watcher/wrapper"
 import { lazy } from "@/util/lazy"

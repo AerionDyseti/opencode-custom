@@ -748,6 +748,10 @@ export type KeybindsConfig = {
    */
   command_list?: string
   /**
+   * Open settings
+   */
+  settings?: string
+  /**
    * List agents
    */
   agent_list?: string

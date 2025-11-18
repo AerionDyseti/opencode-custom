@@ -4,7 +4,7 @@ import fs from "fs/promises"
 import { Log } from "../util/log"
 import { Global } from "../global"
 import z from "zod"
-import { Config } from "../config/config"
+import { Config } from "../config"
 import { Instance } from "../project/instance"
 
 export namespace Snapshot {
