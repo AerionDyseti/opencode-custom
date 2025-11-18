@@ -50,7 +50,7 @@ import { Command } from "../command"
 import { $, fileURLToPath } from "bun"
 import { ConfigMarkdown } from "../config/markdown"
 import { SessionSummary } from "./summary"
-import { Config } from "@/config/config"
+import { Config } from "@/config"
 import { NamedError } from "@/util/error"
 
 export namespace SessionPrompt {
