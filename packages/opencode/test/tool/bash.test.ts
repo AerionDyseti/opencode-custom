@@ -1,7 +1,16 @@
-import { describe, expect, test } from "bun:test"
+import { describe, expect, test, mock } from "bun:test"
 import path from "path"
 import { BashTool } from "../../src/tool/bash"
 import { Instance } from "../../src/project/instance"
+import { Permission } from "../../src/permission"
+import { Log } from "../../src/util/log"
+
+Log.init({ print: false })
+
+// Mock Permission.ask to auto-allow in tests
+Permission.ask = mock(async () => {
+  return
+})
 
 const ctx = {
   sessionID: "test",
@@ -12,7 +21,6 @@ const ctx = {
   metadata: () => {},
 }
 
-const bash = await BashTool.init()
 const projectRoot = path.join(__dirname, "../..")
 
 describe("tool.bash", () => {
@@ -20,6 +28,7 @@ describe("tool.bash", () => {
     await Instance.provide({
       directory: projectRoot,
       fn: async () => {
+        const bash = await BashTool.init()
         const result = await bash.execute(
           {
             command: "echo 'test'",
@@ -37,6 +46,7 @@ describe("tool.bash", () => {
     await Instance.provide({
       directory: projectRoot,
       fn: async () => {
+        const bash = await BashTool.init()
         expect(
           bash.execute(
             {
