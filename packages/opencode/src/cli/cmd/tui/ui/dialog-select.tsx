@@ -86,10 +86,36 @@ export function DialogSelect<T>(props: DialogSelectProps<T>) {
 
   const selected = createMemo(() => flat()[store.selected])
 
+  // Initialize to current value if provided
   createEffect(() => {
-    store.filter
-    setStore("selected", 0)
-    scroll.scrollTo(0)
+    // Only run when flat() changes (on mount or filter change)
+    const currentFlat = flat()
+    if (props.current !== undefined && currentFlat.length > 0) {
+      const index = currentFlat.findIndex((option) => isDeepEqual(option.value, props.current))
+      if (index !== -1) {
+        setStore("selected", index)
+        // Scroll to the current item
+        setTimeout(() => {
+          const target = scroll.getChildren().find((child) => {
+            return child.id === JSON.stringify(props.current)
+          })
+          if (target) {
+            const y = target.y - scroll.y
+            if (y >= scroll.height || y < 0) {
+              scroll.scrollBy(y - Math.floor(scroll.height / 2))
+            }
+          }
+        }, 10)
+      } else {
+        // Current value not in filtered list, reset to 0
+        setStore("selected", 0)
+        scroll.scrollTo(0)
+      }
+    } else if (currentFlat.length > 0) {
+      // No current value, reset to 0
+      setStore("selected", 0)
+      scroll.scrollTo(0)
+    }
   })
 
   function move(direction: number) {

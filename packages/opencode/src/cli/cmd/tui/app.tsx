@@ -16,10 +16,11 @@ import { DialogHelp } from "./ui/dialog-help"
 import { CommandProvider, useCommandDialog } from "@tui/component/dialog-command"
 import { DialogAgent } from "@tui/component/dialog-agent"
 import { DialogSessionList } from "@tui/component/dialog-session-list"
-import { KeybindProvider } from "@tui/context/keybind"
+import { KeybindProvider, useKeybind } from "@tui/context/keybind"
 import { ThemeProvider, useTheme } from "@tui/context/theme"
 import { Home } from "@tui/routes/home"
 import { Session } from "@tui/routes/session"
+import { Settings } from "@tui/routes/settings"
 import { PromptHistoryProvider } from "./component/prompt/history"
 import { DialogAlert } from "./ui/dialog-alert"
 import { ToastProvider, useToast } from "./ui/toast"
@@ -157,6 +158,16 @@ function App() {
   const { theme, mode, setMode } = useTheme()
   const sync = useSync()
   const exit = useExit()
+
+  // Global keyboard handler for app exit
+  const keybind = useKeybind()
+  useKeyboard((evt) => {
+    if (evt.defaultPrevented) return
+    if (keybind.match("app_exit", evt)) {
+      evt.preventDefault()
+      exit()
+    }
+  })
 
   createEffect(() => {
     console.log(JSON.stringify(route.data))
@@ -333,6 +344,16 @@ function App() {
         dialog.clear()
       },
     },
+    {
+      title: "Settings",
+      category: "System",
+      value: "app.settings",
+      keybind: "settings",
+      onSelect: () => {
+        route.navigate({ type: "settings" })
+        dialog.clear()
+      },
+    },
   ])
 
   createEffect(() => {
@@ -429,6 +450,9 @@ function App() {
           </Match>
           <Match when={route.data.type === "session"}>
             <Session />
+          </Match>
+          <Match when={route.data.type === "settings"}>
+            <Settings />
           </Match>
         </Switch>
       </box>
