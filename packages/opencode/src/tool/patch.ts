@@ -147,7 +147,10 @@ export const PatchTool = Tool.define("patch", {
     }
 
     // Check permissions if needed
-    if (agent.permission.edit === "ask") {
+    // Secure default: only allow if explicitly set to "allow" or "ask"
+    if (agent.permission.edit === "allow") {
+      // Explicitly allowed, proceed
+    } else if (agent.permission.edit === "ask") {
       await Permission.ask({
         type: "edit",
         sessionID: ctx.sessionID,
@@ -158,6 +161,9 @@ export const PatchTool = Tool.define("patch", {
           diff: totalDiff,
         },
       })
+    } else {
+      // Default deny for "deny", undefined, null, or any other value
+      throw new Error(`Permission denied: Cannot apply patch to ${fileChanges.length} files`)
     }
 
     // Apply the changes
