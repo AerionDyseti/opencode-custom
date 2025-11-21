@@ -263,7 +263,6 @@ export const { use: useSync, provider: SyncProvider } = createSimpleContext({
             sdk.client.lsp.status().then((x) => setStore("lsp", x.data!)),
             sdk.client.mcp.status().then((x) => setStore("mcp", x.data!)),
             sdk.client.formatter.status().then((x) => setStore("formatter", x.data!)),
-            sdk.client.session.status().then((x) => setStore("session_status", x.data!)),
           ]).then(() => {
             setStore("status", "complete")
           })

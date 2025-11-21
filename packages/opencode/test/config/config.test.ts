@@ -1,5 +1,5 @@
 import { test, expect, mock } from "bun:test"
-import { Config } from "../../src/config"
+import { Config } from "../../src/config/config"
 import { Instance } from "../../src/project/instance"
 import { tmpdir } from "../fixture/fixture"
 import { Bus } from "../../src/bus"
@@ -398,7 +398,7 @@ test("resolves scoped npm plugins in config", async () => {
 
       expect(pluginEntries.includes(expected)).toBe(true)
 
-      const scopedEntry = pluginEntries.find((entry) => entry === expected)
+      const scopedEntry = pluginEntries.find((entry: string) => entry === expected)
       expect(scopedEntry).toBeDefined()
       expect(scopedEntry?.includes("/node_modules/@scope/plugin/")).toBe(true)
     },

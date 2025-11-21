@@ -443,7 +443,7 @@ export type Config = {
   mcp?: {
     [key: string]: McpLocalConfig | McpRemoteConfig
   }
-  formatter?: {
+  formatter?: false | {
     [key: string]: {
       disabled?: boolean
       command?: Array<string>
@@ -453,7 +453,7 @@ export type Config = {
       extensions?: Array<string>
     }
   }
-  lsp?: {
+  lsp?: false | {
     [key: string]:
       | {
           disabled: true
