@@ -20,6 +20,7 @@ import { KeybindProvider } from "@tui/context/keybind"
 import { ThemeProvider, useTheme } from "@tui/context/theme"
 import { Home } from "@tui/routes/home"
 import { Session } from "@tui/routes/session"
+import { Settings } from "@tui/routes/settings"
 import { PromptHistoryProvider } from "./component/prompt/history"
 import { DialogAlert } from "./ui/dialog-alert"
 import { ToastProvider, useToast } from "./ui/toast"
@@ -310,6 +311,16 @@ function App() {
       category: "System",
     },
     {
+      title: "Settings",
+      category: "System",
+      value: "app.settings",
+      keybind: "settings",
+      onSelect: () => {
+        route.navigate({ type: "settings" })
+        dialog.clear()
+      },
+    },
+    {
       title: "Exit the app",
       value: "app.exit",
       onSelect: () => exit(),
@@ -429,6 +440,9 @@ function App() {
           </Match>
           <Match when={route.data.type === "session"}>
             <Session />
+          </Match>
+          <Match when={route.data.type === "settings"}>
+            <Settings />
           </Match>
         </Switch>
       </box>

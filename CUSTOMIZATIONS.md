@@ -3,11 +3,14 @@
 This document describes all custom modifications made to this fork that differ from the upstream `sst/opencode` repository. These must be preserved when applying upstream updates.
 
 ## Overview
-This fork maintains secure-by-default permission handling and adds a config update event system not present in upstream.
+This fork maintains:
+1. **Secure-by-default permission handling** in all tool files
+2. **Config update event system** for reactive configuration changes
+3. **Settings panel UI** for configuring the TUI without editing config files
 
 ---
 
-## 1. Config Module Event System
+## 1. Settings Panel (TUI)
 
 **File:** `packages/opencode/src/config/config.ts`
 
@@ -45,7 +48,36 @@ export async function update(config: Info) {
 
 ---
 
-## 2. Secure Permission Defaults in Tools
+## 1. Settings Panel (TUI)
+
+**Files:**
+- `packages/opencode/src/cli/cmd/tui/routes/settings/` - Settings route components
+  - `index.tsx` - Main settings panel with tab navigation
+  - `general.tsx` - General settings (model selection, theme)
+  - `advanced.tsx` - Advanced settings
+  - `mcp.tsx` - MCP server configuration
+- `packages/opencode/src/cli/cmd/tui/component/settings/` - Settings UI components
+  - `row.tsx` - Settings row component
+  - `section.tsx` - Settings section component
+  - `toggle.tsx` - Toggle switch component
+  - `status-indicator.tsx` - Status indicator component
+- `packages/opencode/src/cli/cmd/tui/component/tab.tsx` - Tab component
+- `packages/opencode/src/cli/cmd/tui/app.tsx` - Settings route integration
+- `packages/opencode/src/cli/cmd/tui/context/route.tsx` - Settings route type
+
+**Features:**
+- **Tabbed interface** with MCP, General, and Advanced settings
+- **Model configuration** - Set default model and small model for lightweight tasks
+- **Theme selection** - Choose themes with live preview
+- **MCP server management** - Configure Model Context Protocol servers
+- **Automatic persistence** - Changes saved via Config.update() and config.updated events
+- **Keyboard shortcuts** - Accessible via command palette (tab → Settings) or keybind
+
+**Purpose:** Provides a user-friendly UI for configuring OpenCode without manually editing JSON config files. Leverages the config event system for live updates.
+
+---
+
+## 3. Secure Permission Defaults in Tools
 
 **Files:**
 - `packages/opencode/src/tool/bash.ts`
