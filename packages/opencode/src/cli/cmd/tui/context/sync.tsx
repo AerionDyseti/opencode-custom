@@ -223,6 +223,11 @@ export const { use: useSync, provider: SyncProvider } = createSimpleContext({
           break
         }
 
+        case "config.updated": {
+          setStore("config", reconcile(event.properties.config))
+          break
+        }
+
         case "lsp.updated": {
           sdk.client.lsp.status().then((x) => setStore("lsp", x.data!))
           break

@@ -4,47 +4,11 @@ This document describes all custom modifications made to this fork that differ f
 
 ## Overview
 This fork maintains:
-1. **Secure-by-default permission handling** in all tool files
+1. **Settings panel UI** for configuring the TUI without editing config files
 2. **Config update event system** for reactive configuration changes
-3. **Settings panel UI** for configuring the TUI without editing config files
-
----
-
-## 1. Settings Panel (TUI)
-
-**File:** `packages/opencode/src/config/config.ts`
-
-**Custom Addition:**
-- Event definition for `config.updated`
-- Event publishing in `update()` function
-
-**Code:**
-```typescript
-// Added imports
-import { Bus } from "../bus"
-
-// Added in Config namespace
-export const Event = {
-  Updated: Bus.event(
-    "config.updated",
-    z.object({
-      config: z.lazy(() => Info),
-    }),
-  ),
-}
-
-// Modified update function to publish event
-export async function update(config: Info) {
-  const filepath = path.join(Instance.directory, "config.json")
-  const existing = await loadFile(filepath)
-  const merged = mergeDeep(existing, config)
-  await Bun.write(filepath, JSON.stringify(merged, null, 2))
-  await Bus.publish(Event.Updated, { config: merged })  // <-- CUSTOM
-  await Instance.dispose()
-}
-```
-
-**Purpose:** Allows other parts of the system to react to config changes via the event bus.
+3. **Improved agent switching** that respects per-agent model configuration
+4. **Secure-by-default permission handling** in all tool files
+5. **Custom workflows** for session management and upstream updates
 
 ---
 
@@ -77,7 +41,103 @@ export async function update(config: Info) {
 
 ---
 
-## 3. Secure Permission Defaults in Tools
+## 2. Config Module Event System
+
+**Files:**
+- `packages/opencode/src/config/config.ts` - Event definition and publishing
+- `packages/opencode/src/cli/cmd/tui/context/sync.tsx` - Event subscription
+
+**Custom Additions:**
+
+### In config.ts:
+- Event definition for `config.updated`
+- Event publishing in `update()` function
+- Config file path fix (opencode.json vs config.json)
+
+```typescript
+// Added imports
+import { Bus } from "../bus"
+
+// Added in Config namespace
+export const Event = {
+  Updated: Bus.event(
+    "config.updated",
+    z.object({
+      config: z.lazy(() => Info),
+    }),
+  ),
+}
+
+// Modified update function to publish event
+export async function update(config: Info) {
+  const filepath = path.join(Instance.directory, "opencode.json")  // <-- FIXED PATH
+  const existing = await loadFile(filepath)
+  const merged = mergeDeep(existing, config)
+  await Bun.write(filepath, JSON.stringify(merged, null, 2))
+  await Bus.publish(Event.Updated, { config: merged })  // <-- CUSTOM EVENT
+  await Instance.dispose()
+}
+```
+
+### In sync.tsx:
+- Event handler for `config.updated` to update sync store
+
+```typescript
+case "config.updated": {
+  setStore("config", reconcile(event.properties.config))
+  break
+}
+```
+
+**Purpose:** Allows reactive updates throughout the TUI when config changes, enabling live updates without restart. Critical for Settings panel functionality.
+
+---
+
+## 3. Agent Switching Improvements
+
+**File:** `packages/opencode/src/cli/cmd/tui/context/local.tsx`
+
+**Custom Modification:**
+Improved agent switching logic to respect per-agent model configuration while preserving user manual selections.
+
+**Logic:**
+- Tracks previous agent to detect switches
+- Only applies agent's configured model on first switch to that agent
+- Preserves user manual model selections for each agent
+- Falls back to agent config if user hasn't set a model for that agent
+
+```typescript
+// Track previous agent to detect agent switches
+let previousAgentName: string | undefined
+createEffect(() => {
+  const currentAgent = agent.current()
+  const agentName = currentAgent.name
+
+  // Only update model when agent switches and has a configured model
+  // and user hasn't manually set a model for this agent
+  if (previousAgentName !== agentName && currentAgent.model && !modelStore.model[agentName]) {
+    if (isModelValid(currentAgent.model))
+      model.set({
+        providerID: currentAgent.model.providerID,
+        modelID: currentAgent.model.modelID,
+      })
+    else
+      toast.show({
+        variant: "warning",
+        message: `Agent ${agentName}'s configured model is not valid`,
+        duration: 3000,
+      })
+  }
+
+  previousAgentName = agentName
+})
+```
+
+**Purpose:** Better UX - respects both agent configuration AND user preferences. Prevents agent switches from clobbering user's manual model selections.
+
+---
+
+## 4. Secure Permission Defaults in Tools
 
 **Files:**
 - `packages/opencode/src/tool/bash.ts`
@@ -116,32 +176,77 @@ if (agent.permission.external_directory === "allow") {
 
 **Purpose:** Defense-in-depth security. Even if config schema validation fails or is bypassed, tools default to denying access rather than allowing it.
 
-**Testing:** Config schema validates permissions as `"ask" | "allow" | "deny"`, so undefined values should not occur under normal operation. This is a safety net.
+---
+
+## 5. Custom Workflows
+
+**Files:**
+- `.agent/workflows/upstream-update.md` - Upstream update process
+- `.agent/workflows/reboot.md` - Session summary generation
+- `.agent/workflows/hello.md` - Sample workflow
+
+### /upstream-update Workflow
+Step-by-step process for applying upstream updates while preserving customizations:
+1. Check for new releases
+2. Create safety commit
+3. Clone upstream reference
+4. Review critical files (config, tools, TUI contexts)
+5. Apply changes selectively
+6. Restore security patterns
+7. Verify builds
+8. Update documentation
+
+### /reboot Workflow
+Generates comprehensive session summaries for context window management:
+- Session overview and status
+- Key learnings and decisions
+- Progress accomplished
+- Current context and artifacts
+- Next steps
+- Creates CONTINUE.md handoff file
+
+**Purpose:** Standardize common maintenance tasks and improve workflow efficiency.
 
 ---
 
 ## Applying Updates While Preserving Modifications
 
+### For Settings Panel:
+When updating TUI files, ensure:
+1. Settings routes and components are preserved
+2. Settings route is in app.tsx Switch statement
+3. Settings command is in command palette
+4. Settings route type in route.tsx context
+
 ### For Config Module:
 1. Copy upstream `config/config.ts`
 2. Add Bus import: `import { Bus } from "../bus"`
-3. Add Event definition after `const log = ...`
-4. Modify `update()` function to capture merged config and publish event
+3. Add Event definition in Config namespace
+4. Modify `update()` function to:
+   - Use "opencode.json" not "config.json"
+   - Publish event after writing
+5. Add config.updated handler to `sync.tsx` event listener
+
+### For Agent Switching:
+1. In `local.tsx`, replace simple model update effect with tracked switching logic
+2. Ensure manual selections are preserved in modelStore.model[agentName]
 
 ### For Tool Files:
 1. Copy upstream tool file
-2. Find all `if (permission === "ask")` checks
+2. Find all permission checks
 3. Transform to `if (permission === "allow") {} else if (permission === "ask") {} else { throw }`
 4. Verify all permission checks follow secure pattern
 5. Test build
 
 ### Verification Checklist:
-- [ ] Config event publishing present
+- [ ] Settings panel accessible (tab → Settings)
+- [ ] Config.updated events published and received
+- [ ] Agent switching preserves user model selections
 - [ ] All 5 tool files have secure defaults
-- [ ] Build passes
+- [ ] Build passes (`bun run build`)
 - [ ] No regressions in permission handling
 
 ---
 
 ## Version History
-- **v1.0.78 (2025-11-20)**: Initial documentation of custom modifications
+- **v1.0.78 (2025-11-20)**: Upstream update with security enhancements, settings panel restored, config event system preserved, agent switching improvements re-applied
