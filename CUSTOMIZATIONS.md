@@ -31,13 +31,14 @@ This fork maintains:
 
 **Features:**
 - **Tabbed interface** with MCP, General, and Advanced settings
-- **Model configuration** - Set default model and small model for lightweight tasks
+- **Agent-aware model configuration** - Set model for the current agent (label shows agent name)
+- **Model selection** - Choose from recent or all available models
 - **Theme selection** - Choose themes with live preview
 - **MCP server management** - Configure Model Context Protocol servers
 - **Automatic persistence** - Changes saved via Config.update() and config.updated events
 - **Keyboard shortcuts** - Accessible via command palette (tab → Settings) or keybind
 
-**Purpose:** Provides a user-friendly UI for configuring OpenCode without manually editing JSON config files. Leverages the config event system for live updates.
+**Purpose:** Provides a user-friendly UI for configuring OpenCode without manually editing JSON config files. Leverages the config event system for live updates. Each agent can have its own configured model.
 
 ---
 

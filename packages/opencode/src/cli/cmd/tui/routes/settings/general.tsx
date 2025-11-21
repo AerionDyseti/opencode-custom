@@ -66,13 +66,20 @@ export function GeneralSettings() {
   const handleModelChange = async (model: { providerID: string; modelID: string }) => {
     local.model.set(model, { recent: true })
     try {
+      const currentAgent = local.agent.current()
       await sdk.client.config.update({
-        body: { model: `${model.providerID}/${model.modelID}` },
+        body: { 
+          agent: {
+            [currentAgent.name]: {
+              model: `${model.providerID}/${model.modelID}`
+            }
+          }
+        },
       })
       const provider = sync.data.provider.find((x) => x.id === model.providerID)
       const modelInfo = provider?.models[model.modelID]
       toast.show({
-        message: `Model changed to ${modelInfo?.name ?? model.modelID}`,
+        message: `${currentAgent.name} agent model changed to ${modelInfo?.name ?? model.modelID}`,
         variant: "success",
       })
     } catch (error) {
@@ -117,7 +124,7 @@ export function GeneralSettings() {
   const settings = createMemo(() => [
     {
       id: "model",
-      label: "Default Model",
+      label: `Model (${local.agent.current()?.name ?? "..."})`,
       value: currentModel(),
       onActivate: () => {
         const modelOptions = createMemo(() => {
