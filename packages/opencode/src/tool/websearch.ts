@@ -1,7 +1,7 @@
 import z from "zod"
 import { Tool } from "./tool"
 import DESCRIPTION from "./websearch.txt"
-import { Config } from "../config"
+import { Config } from "../config/config"
 import { Permission } from "../permission"
 
 const API_CONFIG = {

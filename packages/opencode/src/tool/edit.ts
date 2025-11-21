@@ -50,7 +50,7 @@ export const EditTool = Tool.define("edit", {
       } else if (agent.permission.external_directory === "ask") {
         await Permission.ask({
           type: "external_directory",
-          pattern: parentDir,
+          pattern: [parentDir, path.join(parentDir, "*")],
           sessionID: ctx.sessionID,
           messageID: ctx.messageID,
           callID: ctx.callID,
@@ -62,7 +62,16 @@ export const EditTool = Tool.define("edit", {
         })
       } else {
         // Default deny for "deny", undefined, null, or any other value
-        throw new Error(`Permission denied: Cannot edit file outside working directory: ${filePath}`)
+        throw new Permission.RejectedError(
+          ctx.sessionID,
+          "external_directory",
+          ctx.callID,
+          {
+            filepath: filePath,
+            parentDir,
+          },
+          `Permission denied: Cannot edit file outside working directory: ${filePath}`,
+        )
       }
     }
 

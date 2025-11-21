@@ -39,7 +39,7 @@ export const ReadTool = Tool.define("read", {
       } else if (agent.permission.external_directory === "ask") {
         await Permission.ask({
           type: "external_directory",
-          pattern: parentDir,
+          pattern: [parentDir, path.join(parentDir, "*")],
           sessionID: ctx.sessionID,
           messageID: ctx.messageID,
           callID: ctx.callID,
@@ -51,18 +51,27 @@ export const ReadTool = Tool.define("read", {
         })
       } else {
         // Default deny for "deny", undefined, null, or any other value
-        throw new Error(`Permission denied: Cannot access file outside working directory: ${filepath}`)
+        throw new Permission.RejectedError(
+          ctx.sessionID,
+          "external_directory",
+          ctx.callID,
+          {
+            filepath: filepath,
+            parentDir,
+          },
+          `Permission denied: Cannot read file outside working directory: ${filepath}`,
+        )
       }
     }
 
-    const block = (() => {
-      const whitelist = [".env.example", ".env.sample"]
+    const block = iife(() => {
+      const whitelist = [".env.sample", ".example"]
 
       if (whitelist.some((w) => filepath.endsWith(w))) return false
       if (filepath.includes(".env")) return true
 
       return false
-    })()
+    })
 
     if (block) {
       throw new Error(`The user has blocked you from reading ${filepath}, DO NOT make further attempts to read it`)

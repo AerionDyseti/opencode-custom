@@ -29,7 +29,7 @@ export const WriteTool = Tool.define("write", {
       } else if (agent.permission.external_directory === "ask") {
         await Permission.ask({
           type: "external_directory",
-          pattern: parentDir,
+          pattern: [parentDir, path.join(parentDir, "*")],
           sessionID: ctx.sessionID,
           messageID: ctx.messageID,
           callID: ctx.callID,
@@ -41,7 +41,16 @@ export const WriteTool = Tool.define("write", {
         })
       } else {
         // Default deny for "deny", undefined, null, or any other value
-        throw new Error(`Permission denied: Cannot write file outside working directory: ${filepath}`)
+        throw new Permission.RejectedError(
+          ctx.sessionID,
+          "external_directory",
+          ctx.callID,
+          {
+            filepath: filepath,
+            parentDir,
+          },
+          `Permission denied: Cannot write file outside working directory: ${filepath}`,
+        )
       }
     }
 

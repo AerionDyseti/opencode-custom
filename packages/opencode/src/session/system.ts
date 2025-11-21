@@ -1,7 +1,7 @@
 import { Ripgrep } from "../file/ripgrep"
 import { Global } from "../global"
 import { Filesystem } from "../util/filesystem"
-import { Config } from "../config"
+import { Config } from "../config/config"
 
 import { Instance } from "../project/instance"
 import path from "path"
@@ -43,7 +43,7 @@ export namespace SystemPrompt {
         `  Platform: ${process.platform}`,
         `  Today's date: ${new Date().toDateString()}`,
         `</env>`,
-        `<project>`,
+        `<files>`,
         `  ${
           project.vcs === "git"
             ? await Ripgrep.tree({
@@ -52,7 +52,7 @@ export namespace SystemPrompt {
               })
             : ""
         }`,
-        `</project>`,
+        `</files>`,
       ].join("\n"),
     ]
   }

@@ -61,7 +61,7 @@ export const PatchTool = Tool.define("patch", {
         } else if (agent.permission.external_directory === "ask") {
           await Permission.ask({
             type: "external_directory",
-            pattern: parentDir,
+            pattern: [parentDir, path.join(parentDir, "*")],
             sessionID: ctx.sessionID,
             messageID: ctx.messageID,
             callID: ctx.callID,
@@ -73,7 +73,16 @@ export const PatchTool = Tool.define("patch", {
           })
         } else {
           // Default deny for "deny", undefined, null, or any other value
-          throw new Error(`Permission denied: Cannot patch file outside working directory: ${filePath}`)
+          throw new Permission.RejectedError(
+            ctx.sessionID,
+            "external_directory",
+            ctx.callID,
+            {
+              filepath: filePath,
+              parentDir,
+            },
+            `Permission denied: Cannot patch file outside working directory: ${filePath}`,
+          )
         }
       }
 
@@ -163,7 +172,7 @@ export const PatchTool = Tool.define("patch", {
       })
     } else {
       // Default deny for "deny", undefined, null, or any other value
-      throw new Error(`Permission denied: Cannot apply patch to ${fileChanges.length} files`)
+      throw new Error(`Permission denied: Cannot apply patch to files`)
     }
 
     // Apply the changes

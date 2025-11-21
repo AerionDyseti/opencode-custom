@@ -2,7 +2,7 @@ import z from "zod"
 import { Tool } from "./tool"
 import TurndownService from "turndown"
 import DESCRIPTION from "./webfetch.txt"
-import { Config } from "../config"
+import { Config } from "../config/config"
 import { Permission } from "../permission"
 
 const MAX_RESPONSE_SIZE = 5 * 1024 * 1024 // 5MB
