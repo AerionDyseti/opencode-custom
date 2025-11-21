@@ -314,6 +314,7 @@ function App() {
       title: "Settings",
       category: "System",
       value: "app.settings",
+      keybind: "settings",
       onSelect: () => {
         route.navigate({ type: "settings" })
         dialog.clear()

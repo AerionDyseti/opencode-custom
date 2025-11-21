@@ -428,6 +428,7 @@ export namespace Config {
       model_cycle_recent: z.string().optional().default("f2").describe("Next recently used model"),
       model_cycle_recent_reverse: z.string().optional().default("shift+f2").describe("Previous recently used model"),
       command_list: z.string().optional().default("ctrl+p").describe("List available commands"),
+      settings: z.string().optional().default("none").describe("Open settings panel"),
       agent_list: z.string().optional().default("<leader>a").describe("List agents"),
       agent_cycle: z.string().optional().default("tab").describe("Next agent"),
       agent_cycle_reverse: z.string().optional().default("shift+tab").describe("Previous agent"),

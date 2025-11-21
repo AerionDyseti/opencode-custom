@@ -124,6 +124,10 @@ export type KeybindsConfig = {
    */
   command_list?: string
   /**
+   * Open settings panel
+   */
+  settings?: string
+  /**
    * List agents
    */
   agent_list?: string
