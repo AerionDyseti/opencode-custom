@@ -73,7 +73,12 @@ export namespace SessionRetry {
     return exponential
   }
 
-  export function getBoundedDelay(args: { error: MessageV2.APIError; attempt: number; startTime: number; maxDuration?: number }): number | undefined {
+  export function getBoundedDelay(args: {
+    error: MessageV2.APIError
+    attempt: number
+    startTime: number
+    maxDuration?: number
+  }): number | undefined {
     const { error, attempt, startTime, maxDuration } = args
     const RETRY_TIMEOUT = maxDuration ?? 600_000 // 10 minutes in milliseconds default
     const elapsedTime = Date.now() - startTime

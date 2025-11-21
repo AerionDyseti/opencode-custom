@@ -21,12 +21,14 @@ try {
 export function fileLog(...args: any[]) {
   try {
     const timestamp = new Date().toISOString()
-    const message = args.map((arg) => {
-      if (typeof arg === "object") {
-        return JSON.stringify(arg, null, 2)
-      }
-      return String(arg)
-    }).join(" ")
+    const message = args
+      .map((arg) => {
+        if (typeof arg === "object") {
+          return JSON.stringify(arg, null, 2)
+        }
+        return String(arg)
+      })
+      .join(" ")
 
     const line = `[${timestamp}] ${message}\n`
     fs.appendFileSync(logFile, line)
