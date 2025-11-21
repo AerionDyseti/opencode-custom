@@ -1,5 +1,5 @@
 import z from "zod"
-import { Config } from "../config"
+import { Config } from "../config/config"
 import { Instance } from "../project/instance"
 import PROMPT_INITIALIZE from "./template/initialize.txt"
 import { Bus } from "../bus"

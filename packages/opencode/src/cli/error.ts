@@ -1,5 +1,5 @@
 import { ConfigMarkdown } from "@/config/markdown"
-import { Config } from "../config"
+import { Config } from "../config/config"
 import { MCP } from "../mcp"
 import { UI } from "./ui"
 

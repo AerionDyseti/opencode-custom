@@ -1,4 +1,4 @@
-import { Config } from "../config"
+import { Config } from "../config/config"
 import z from "zod"
 import { Provider } from "../provider/provider"
 import { generateObject, type ModelMessage } from "ai"
@@ -12,7 +12,7 @@ export namespace Agent {
     .object({
       name: z.string(),
       description: z.string().optional(),
-      mode: z.union([z.literal("subagent"), z.literal("primary"), z.literal("all")]),
+      mode: z.enum(["subagent", "primary", "all"]),
       builtIn: z.boolean(),
       topP: z.number().optional(),
       temperature: z.number().optional(),
@@ -250,8 +250,8 @@ function mergeAgentPermissions(basePermission: any, overridePermission: any): Ag
     edit: merged.edit ?? "allow",
     webfetch: merged.webfetch ?? "allow",
     bash: mergedBash ?? { "*": "allow" },
-    doom_loop: merged.doom_loop ?? "ask",
-    external_directory: merged.external_directory ?? "ask",
+    doom_loop: merged.doom_loop,
+    external_directory: merged.external_directory,
   }
 
   return result
