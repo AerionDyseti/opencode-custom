@@ -100,6 +100,23 @@ export function GeneralSettings() {
     }
   }
 
+  const handleShareChange = async (shareMode: "manual" | "auto" | "disabled") => {
+    try {
+      await sdk.client.config.update({
+        body: { share: shareMode },
+      })
+      toast.show({
+        message: `Share mode changed to ${shareMode}`,
+        variant: "success",
+      })
+    } catch (error) {
+      toast.show({
+        message: `Failed to save share setting: ${error}`,
+        variant: "error",
+      })
+    }
+  }
+
   const handleSmallModelChange = async (model: { providerID: string; modelID: string } | null) => {
     try {
       const updateBody = model ? { small_model: `${model.providerID}/${model.modelID}` } : { small_model: null }
@@ -128,6 +145,62 @@ export function GeneralSettings() {
   }
 
   const settings = createMemo(() => [
+    {
+      id: "username",
+      label: "Username",
+      value: sync.data.config.username ?? "Not set",
+      onActivate: () => {
+        const originalUsername = sync.data.config.username || ""
+        let confirmed = false
+
+        // For now, just show a toast since we don't have a proper input dialog
+        toast.show({
+          message: "Username setting coming soon - edit opencode.json to change",
+          variant: "info",
+        })
+
+        // For now, just show a toast since we don't have a proper input dialog
+        toast.show({
+          message: "Username setting coming soon - edit opencode.json to change",
+          variant: "info",
+        })
+      },
+    },
+    {
+      id: "share",
+      label: "Share Settings",
+      value: sync.data.config.share ?? "manual",
+      onActivate: () => {
+        const shareOptions = [
+          { value: "manual", title: "Manual", description: "Share via commands only" },
+          { value: "auto", title: "Auto", description: "Automatically share new sessions" },
+          { value: "disabled", title: "Disabled", description: "Disable all sharing" },
+        ]
+
+        dialog.replace(() => (
+          <DialogSelect
+            title="Select Share Mode"
+            current={sync.data.config.share}
+            onSelect={(option) => {
+              handleShareChange(option.value as "manual" | "auto" | "disabled")
+              dialog.clear()
+            }}
+            options={shareOptions}
+          />
+        ))
+      },
+    },
+    {
+      id: "keybinds",
+      label: "Keybinds",
+      value: "Configure keyboard shortcuts",
+      onActivate: () => {
+        toast.show({
+          message: "Keybinds configuration coming soon - edit opencode.json to change",
+          variant: "info",
+        })
+      },
+    },
     {
       id: "model",
       label: `Model (${local.agent.current()?.name ?? "..."})`,

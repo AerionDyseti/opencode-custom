@@ -46,6 +46,12 @@ export function AdvancedSettings() {
       value: () => disablePasteSummary(),
       onActivate: () => handleToggleExperimental("disable_paste_summary", disablePasteSummary()),
     },
+    {
+      id: "batch_tool",
+      label: "Batch Tool",
+      value: () => experimentalFeatures().batch_tool ?? false,
+      onActivate: () => handleToggleExperimental("batch_tool", experimentalFeatures().batch_tool ?? false),
+    },
   ]
 
   useKeyboard((evt) => {
