@@ -45,6 +45,16 @@ export function GeneralSettings() {
     return `${modelInfo?.name ?? modelID} (${provider?.name ?? providerID})`
   })
 
+  const currentSmallModelValue = createMemo(() => {
+    const smallModelConfig = sync.data.config.small_model
+    if (!smallModelConfig) return null
+    const [providerID, ...modelParts] = smallModelConfig.split("/")
+    return {
+      providerID,
+      modelID: modelParts.join("/"),
+    }
+  })
+
   const handleThemeChange = async (themeName: string) => {
     themeContext.set(themeName)
     try {
@@ -68,12 +78,12 @@ export function GeneralSettings() {
     try {
       const currentAgent = local.agent.current()
       await sdk.client.config.update({
-        body: { 
+        body: {
           agent: {
             [currentAgent.name]: {
-              model: `${model.providerID}/${model.modelID}`
-            }
-          }
+              model: `${model.providerID}/${model.modelID}`,
+            },
+          },
         },
       })
       const provider = sync.data.provider.find((x) => x.id === model.providerID)
@@ -91,14 +101,11 @@ export function GeneralSettings() {
   }
 
   const handleSmallModelChange = async (model: { providerID: string; modelID: string } | null) => {
-    console.log("[SmallModel] handleSmallModelChange called with:", model)
     try {
       const updateBody = model ? { small_model: `${model.providerID}/${model.modelID}` } : { small_model: null }
-      console.log("[SmallModel] Calling SDK update with body:", updateBody)
       await sdk.client.config.update({
         body: updateBody as any,
       })
-      console.log("[SmallModel] SDK update successful")
       if (model) {
         const provider = sync.data.provider.find((x) => x.id === model.providerID)
         const modelInfo = provider?.models[model.modelID]
@@ -113,7 +120,6 @@ export function GeneralSettings() {
         })
       }
     } catch (error) {
-      console.log("[SmallModel] SDK update failed:", error)
       toast.show({
         message: `Failed to save small model: ${error}`,
         variant: "error",
@@ -192,16 +198,6 @@ export function GeneralSettings() {
       label: "Small Model",
       value: currentSmallModel(),
       onActivate: () => {
-        const currentSmallModelValue = (() => {
-          const smallModelConfig = sync.data.config.small_model
-          if (!smallModelConfig) return null
-          const [providerID, ...modelParts] = smallModelConfig.split("/")
-          return {
-            providerID,
-            modelID: modelParts.join("/"),
-          }
-        })()
-
         const modelOptions = createMemo(() => {
           return [
             {
@@ -258,7 +254,7 @@ export function GeneralSettings() {
         dialog.replace(() => (
           <DialogSelect
             title="Select Small Model"
-            current={currentSmallModelValue}
+            current={currentSmallModelValue() || undefined}
             onSelect={(option) => {
               handleSmallModelChange(option.value as { providerID: string; modelID: string } | null)
               dialog.clear()

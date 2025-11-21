@@ -224,7 +224,12 @@ export const { use: useSync, provider: SyncProvider } = createSimpleContext({
         }
 
         case "config.updated": {
-          setStore("config", reconcile(event.properties.config))
+          // Merge the update into the existing config, don't replace it
+          // This preserves fields like keybinds that aren't being updated
+          setStore("config", (prev) => ({
+            ...prev,
+            ...event.properties.config,
+          }))
           break
         }
 

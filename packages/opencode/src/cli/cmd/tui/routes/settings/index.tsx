@@ -9,10 +9,12 @@ import { MCPSettings } from "./mcp"
 import { GeneralSettings } from "./general"
 import { AdvancedSettings } from "./advanced"
 import { Toast } from "@tui/ui/toast"
+import { useDialog } from "@tui/ui/dialog"
 
 export function Settings() {
   const { theme } = useTheme()
   const route = useRoute()
+  const dialog = useDialog()
   const [activeTab, setActiveTab] = createSignal<"mcp" | "general" | "advanced">(
     route.data.type === "settings" ? route.data.tab || "mcp" : "mcp",
   )
@@ -32,8 +34,11 @@ export function Settings() {
     if (evt.defaultPrevented) return
 
     if (evt.name === "escape") {
-      route.navigate({ type: "home" })
-      evt.preventDefault()
+      // Only handle escape if no dialog is open
+      if (dialog.stack.length === 0) {
+        route.navigate({ type: "home" })
+        evt.preventDefault()
+      }
     } else if (evt.name === "left") {
       const currentIndex = tabs.findIndex((tab) => tab.id === activeTab())
       const prevIndex = currentIndex > 0 ? currentIndex - 1 : tabs.length - 1

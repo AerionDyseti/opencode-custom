@@ -1,0 +1,4380 @@
+=== OpenCode Debug Log - 2025-11-21T04:27:47.457Z ===
+[2025-11-21T04:27:47.458Z] === App Starting ===
+[2025-11-21T04:27:47.779Z] [Keybind] keybinds memo recomputed - configKeybinds is: object with keys: 41
+[2025-11-21T04:27:47.779Z] [Keybind] parsed keys: 41 hasCommandList: true
+[2025-11-21T04:27:48.668Z] [CommandProvider] keyboard event: {
+  "name": "p",
+  "suspended": false,
+  "dialogStackLength": 0,
+  "defaultPrevented": false,
+  "keybindAll": {
+    "leader": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "x"
+      }
+    ],
+    "app_exit": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "c"
+      },
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "q"
+      }
+    ],
+    "editor_open": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "e"
+      }
+    ],
+    "theme_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "t"
+      }
+    ],
+    "sidebar_toggle": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "b"
+      }
+    ],
+    "status_view": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "s"
+      }
+    ],
+    "session_export": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "x"
+      }
+    ],
+    "session_new": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "n"
+      }
+    ],
+    "session_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "l"
+      }
+    ],
+    "session_timeline": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "g"
+      }
+    ],
+    "session_share": [],
+    "session_unshare": [],
+    "session_interrupt": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "escape"
+      }
+    ],
+    "session_compact": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "c"
+      }
+    ],
+    "messages_page_up": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "pageup"
+      }
+    ],
+    "messages_page_down": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "pagedown"
+      }
+    ],
+    "messages_half_page_up": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "u"
+      }
+    ],
+    "messages_half_page_down": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      }
+    ],
+    "messages_first": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "g"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "home"
+      }
+    ],
+    "messages_last": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "g"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "end"
+      }
+    ],
+    "messages_copy": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "y"
+      }
+    ],
+    "messages_undo": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "u"
+      }
+    ],
+    "messages_redo": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "r"
+      }
+    ],
+    "messages_toggle_conceal": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "h"
+      }
+    ],
+    "model_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "m"
+      }
+    ],
+    "model_cycle_recent": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "f2"
+      }
+    ],
+    "model_cycle_recent_reverse": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "f2"
+      }
+    ],
+    "command_list": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "p"
+      }
+    ],
+    "settings": [],
+    "agent_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "a"
+      }
+    ],
+    "agent_cycle": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "tab"
+      }
+    ],
+    "agent_cycle_reverse": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "tab"
+      }
+    ],
+    "input_clear": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "c"
+      }
+    ],
+    "input_forward_delete": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      }
+    ],
+    "input_paste": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "v"
+      }
+    ],
+    "input_submit": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "return"
+      }
+    ],
+    "input_newline": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "return"
+      },
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "j"
+      }
+    ],
+    "history_previous": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "up"
+      }
+    ],
+    "history_next": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "down"
+      }
+    ],
+    "session_child_cycle": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "right"
+      }
+    ],
+    "session_child_cycle_reverse": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "left"
+      }
+    ]
+  },
+  "matchesCommandList": true
+}
+[2025-11-21T04:27:48.668Z] [CommandProvider] Matched command_list keybind!
+[2025-11-21T04:27:49.080Z] [CommandProvider] keyboard event: {
+  "name": "up",
+  "suspended": false,
+  "dialogStackLength": 1,
+  "defaultPrevented": false,
+  "keybindAll": {
+    "leader": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "x"
+      }
+    ],
+    "app_exit": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "c"
+      },
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "q"
+      }
+    ],
+    "editor_open": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "e"
+      }
+    ],
+    "theme_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "t"
+      }
+    ],
+    "sidebar_toggle": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "b"
+      }
+    ],
+    "status_view": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "s"
+      }
+    ],
+    "session_export": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "x"
+      }
+    ],
+    "session_new": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "n"
+      }
+    ],
+    "session_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "l"
+      }
+    ],
+    "session_timeline": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "g"
+      }
+    ],
+    "session_share": [],
+    "session_unshare": [],
+    "session_interrupt": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "escape"
+      }
+    ],
+    "session_compact": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "c"
+      }
+    ],
+    "messages_page_up": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "pageup"
+      }
+    ],
+    "messages_page_down": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "pagedown"
+      }
+    ],
+    "messages_half_page_up": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "u"
+      }
+    ],
+    "messages_half_page_down": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      }
+    ],
+    "messages_first": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "g"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "home"
+      }
+    ],
+    "messages_last": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "g"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "end"
+      }
+    ],
+    "messages_copy": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "y"
+      }
+    ],
+    "messages_undo": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "u"
+      }
+    ],
+    "messages_redo": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "r"
+      }
+    ],
+    "messages_toggle_conceal": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "h"
+      }
+    ],
+    "model_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "m"
+      }
+    ],
+    "model_cycle_recent": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "f2"
+      }
+    ],
+    "model_cycle_recent_reverse": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "f2"
+      }
+    ],
+    "command_list": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "p"
+      }
+    ],
+    "settings": [],
+    "agent_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "a"
+      }
+    ],
+    "agent_cycle": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "tab"
+      }
+    ],
+    "agent_cycle_reverse": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "tab"
+      }
+    ],
+    "input_clear": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "c"
+      }
+    ],
+    "input_forward_delete": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      }
+    ],
+    "input_paste": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "v"
+      }
+    ],
+    "input_submit": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "return"
+      }
+    ],
+    "input_newline": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "return"
+      },
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "j"
+      }
+    ],
+    "history_previous": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "up"
+      }
+    ],
+    "history_next": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "down"
+      }
+    ],
+    "session_child_cycle": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "right"
+      }
+    ],
+    "session_child_cycle_reverse": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "left"
+      }
+    ]
+  }
+}
+[2025-11-21T04:27:49.404Z] [CommandProvider] keyboard event: {
+  "name": "up",
+  "suspended": false,
+  "dialogStackLength": 1,
+  "defaultPrevented": false,
+  "keybindAll": {
+    "leader": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "x"
+      }
+    ],
+    "app_exit": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "c"
+      },
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "q"
+      }
+    ],
+    "editor_open": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "e"
+      }
+    ],
+    "theme_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "t"
+      }
+    ],
+    "sidebar_toggle": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "b"
+      }
+    ],
+    "status_view": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "s"
+      }
+    ],
+    "session_export": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "x"
+      }
+    ],
+    "session_new": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "n"
+      }
+    ],
+    "session_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "l"
+      }
+    ],
+    "session_timeline": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "g"
+      }
+    ],
+    "session_share": [],
+    "session_unshare": [],
+    "session_interrupt": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "escape"
+      }
+    ],
+    "session_compact": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "c"
+      }
+    ],
+    "messages_page_up": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "pageup"
+      }
+    ],
+    "messages_page_down": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "pagedown"
+      }
+    ],
+    "messages_half_page_up": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "u"
+      }
+    ],
+    "messages_half_page_down": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      }
+    ],
+    "messages_first": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "g"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "home"
+      }
+    ],
+    "messages_last": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "g"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "end"
+      }
+    ],
+    "messages_copy": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "y"
+      }
+    ],
+    "messages_undo": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "u"
+      }
+    ],
+    "messages_redo": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "r"
+      }
+    ],
+    "messages_toggle_conceal": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "h"
+      }
+    ],
+    "model_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "m"
+      }
+    ],
+    "model_cycle_recent": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "f2"
+      }
+    ],
+    "model_cycle_recent_reverse": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "f2"
+      }
+    ],
+    "command_list": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "p"
+      }
+    ],
+    "settings": [],
+    "agent_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "a"
+      }
+    ],
+    "agent_cycle": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "tab"
+      }
+    ],
+    "agent_cycle_reverse": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "tab"
+      }
+    ],
+    "input_clear": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "c"
+      }
+    ],
+    "input_forward_delete": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      }
+    ],
+    "input_paste": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "v"
+      }
+    ],
+    "input_submit": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "return"
+      }
+    ],
+    "input_newline": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "return"
+      },
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "j"
+      }
+    ],
+    "history_previous": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "up"
+      }
+    ],
+    "history_next": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "down"
+      }
+    ],
+    "session_child_cycle": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "right"
+      }
+    ],
+    "session_child_cycle_reverse": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "left"
+      }
+    ]
+  }
+}
+[2025-11-21T04:27:49.589Z] [CommandProvider] keyboard event: {
+  "name": "up",
+  "suspended": false,
+  "dialogStackLength": 1,
+  "defaultPrevented": false,
+  "keybindAll": {
+    "leader": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "x"
+      }
+    ],
+    "app_exit": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "c"
+      },
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "q"
+      }
+    ],
+    "editor_open": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "e"
+      }
+    ],
+    "theme_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "t"
+      }
+    ],
+    "sidebar_toggle": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "b"
+      }
+    ],
+    "status_view": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "s"
+      }
+    ],
+    "session_export": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "x"
+      }
+    ],
+    "session_new": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "n"
+      }
+    ],
+    "session_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "l"
+      }
+    ],
+    "session_timeline": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "g"
+      }
+    ],
+    "session_share": [],
+    "session_unshare": [],
+    "session_interrupt": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "escape"
+      }
+    ],
+    "session_compact": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "c"
+      }
+    ],
+    "messages_page_up": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "pageup"
+      }
+    ],
+    "messages_page_down": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "pagedown"
+      }
+    ],
+    "messages_half_page_up": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "u"
+      }
+    ],
+    "messages_half_page_down": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      }
+    ],
+    "messages_first": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "g"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "home"
+      }
+    ],
+    "messages_last": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "g"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "end"
+      }
+    ],
+    "messages_copy": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "y"
+      }
+    ],
+    "messages_undo": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "u"
+      }
+    ],
+    "messages_redo": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "r"
+      }
+    ],
+    "messages_toggle_conceal": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "h"
+      }
+    ],
+    "model_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "m"
+      }
+    ],
+    "model_cycle_recent": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "f2"
+      }
+    ],
+    "model_cycle_recent_reverse": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "f2"
+      }
+    ],
+    "command_list": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "p"
+      }
+    ],
+    "settings": [],
+    "agent_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "a"
+      }
+    ],
+    "agent_cycle": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "tab"
+      }
+    ],
+    "agent_cycle_reverse": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "tab"
+      }
+    ],
+    "input_clear": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "c"
+      }
+    ],
+    "input_forward_delete": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      }
+    ],
+    "input_paste": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "v"
+      }
+    ],
+    "input_submit": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "return"
+      }
+    ],
+    "input_newline": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "return"
+      },
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "j"
+      }
+    ],
+    "history_previous": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "up"
+      }
+    ],
+    "history_next": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "down"
+      }
+    ],
+    "session_child_cycle": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "right"
+      }
+    ],
+    "session_child_cycle_reverse": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "left"
+      }
+    ]
+  }
+}
+[2025-11-21T04:27:49.865Z] [CommandProvider] keyboard event: {
+  "name": "up",
+  "suspended": false,
+  "dialogStackLength": 1,
+  "defaultPrevented": false,
+  "keybindAll": {
+    "leader": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "x"
+      }
+    ],
+    "app_exit": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "c"
+      },
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "q"
+      }
+    ],
+    "editor_open": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "e"
+      }
+    ],
+    "theme_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "t"
+      }
+    ],
+    "sidebar_toggle": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "b"
+      }
+    ],
+    "status_view": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "s"
+      }
+    ],
+    "session_export": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "x"
+      }
+    ],
+    "session_new": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "n"
+      }
+    ],
+    "session_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "l"
+      }
+    ],
+    "session_timeline": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "g"
+      }
+    ],
+    "session_share": [],
+    "session_unshare": [],
+    "session_interrupt": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "escape"
+      }
+    ],
+    "session_compact": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "c"
+      }
+    ],
+    "messages_page_up": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "pageup"
+      }
+    ],
+    "messages_page_down": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "pagedown"
+      }
+    ],
+    "messages_half_page_up": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "u"
+      }
+    ],
+    "messages_half_page_down": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      }
+    ],
+    "messages_first": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "g"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "home"
+      }
+    ],
+    "messages_last": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "g"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "end"
+      }
+    ],
+    "messages_copy": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "y"
+      }
+    ],
+    "messages_undo": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "u"
+      }
+    ],
+    "messages_redo": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "r"
+      }
+    ],
+    "messages_toggle_conceal": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "h"
+      }
+    ],
+    "model_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "m"
+      }
+    ],
+    "model_cycle_recent": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "f2"
+      }
+    ],
+    "model_cycle_recent_reverse": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "f2"
+      }
+    ],
+    "command_list": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "p"
+      }
+    ],
+    "settings": [],
+    "agent_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "a"
+      }
+    ],
+    "agent_cycle": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "tab"
+      }
+    ],
+    "agent_cycle_reverse": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "tab"
+      }
+    ],
+    "input_clear": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "c"
+      }
+    ],
+    "input_forward_delete": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      }
+    ],
+    "input_paste": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "v"
+      }
+    ],
+    "input_submit": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "return"
+      }
+    ],
+    "input_newline": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "return"
+      },
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "j"
+      }
+    ],
+    "history_previous": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "up"
+      }
+    ],
+    "history_next": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "down"
+      }
+    ],
+    "session_child_cycle": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "right"
+      }
+    ],
+    "session_child_cycle_reverse": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "left"
+      }
+    ]
+  }
+}
+[2025-11-21T04:27:50.043Z] [CommandProvider] keyboard event: {
+  "name": "return",
+  "suspended": false,
+  "dialogStackLength": 1,
+  "defaultPrevented": true,
+  "keybindAll": {
+    "leader": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "x"
+      }
+    ],
+    "app_exit": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "c"
+      },
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "q"
+      }
+    ],
+    "editor_open": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "e"
+      }
+    ],
+    "theme_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "t"
+      }
+    ],
+    "sidebar_toggle": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "b"
+      }
+    ],
+    "status_view": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "s"
+      }
+    ],
+    "session_export": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "x"
+      }
+    ],
+    "session_new": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "n"
+      }
+    ],
+    "session_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "l"
+      }
+    ],
+    "session_timeline": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "g"
+      }
+    ],
+    "session_share": [],
+    "session_unshare": [],
+    "session_interrupt": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "escape"
+      }
+    ],
+    "session_compact": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "c"
+      }
+    ],
+    "messages_page_up": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "pageup"
+      }
+    ],
+    "messages_page_down": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "pagedown"
+      }
+    ],
+    "messages_half_page_up": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "u"
+      }
+    ],
+    "messages_half_page_down": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      }
+    ],
+    "messages_first": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "g"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "home"
+      }
+    ],
+    "messages_last": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "g"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "end"
+      }
+    ],
+    "messages_copy": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "y"
+      }
+    ],
+    "messages_undo": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "u"
+      }
+    ],
+    "messages_redo": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "r"
+      }
+    ],
+    "messages_toggle_conceal": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "h"
+      }
+    ],
+    "model_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "m"
+      }
+    ],
+    "model_cycle_recent": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "f2"
+      }
+    ],
+    "model_cycle_recent_reverse": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "f2"
+      }
+    ],
+    "command_list": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "p"
+      }
+    ],
+    "settings": [],
+    "agent_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "a"
+      }
+    ],
+    "agent_cycle": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "tab"
+      }
+    ],
+    "agent_cycle_reverse": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "tab"
+      }
+    ],
+    "input_clear": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "c"
+      }
+    ],
+    "input_forward_delete": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      }
+    ],
+    "input_paste": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "v"
+      }
+    ],
+    "input_submit": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "return"
+      }
+    ],
+    "input_newline": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "return"
+      },
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "j"
+      }
+    ],
+    "history_previous": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "up"
+      }
+    ],
+    "history_next": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "down"
+      }
+    ],
+    "session_child_cycle": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "right"
+      }
+    ],
+    "session_child_cycle_reverse": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "left"
+      }
+    ]
+  }
+}
+[2025-11-21T04:27:50.043Z] [Route] navigating to {
+  "type": "settings"
+}
+[2025-11-21T04:27:50.043Z] [Route] Before navigate - store: {
+  "type": "home"
+}
+[2025-11-21T04:27:50.055Z] [Route] After navigate - store: {
+  "type": "settings"
+}
+[2025-11-21T04:27:50.778Z] [CommandProvider] keyboard event: {
+  "name": "right",
+  "suspended": false,
+  "dialogStackLength": 0,
+  "defaultPrevented": false,
+  "keybindAll": {
+    "leader": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "x"
+      }
+    ],
+    "app_exit": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "c"
+      },
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "q"
+      }
+    ],
+    "editor_open": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "e"
+      }
+    ],
+    "theme_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "t"
+      }
+    ],
+    "sidebar_toggle": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "b"
+      }
+    ],
+    "status_view": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "s"
+      }
+    ],
+    "session_export": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "x"
+      }
+    ],
+    "session_new": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "n"
+      }
+    ],
+    "session_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "l"
+      }
+    ],
+    "session_timeline": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "g"
+      }
+    ],
+    "session_share": [],
+    "session_unshare": [],
+    "session_interrupt": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "escape"
+      }
+    ],
+    "session_compact": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "c"
+      }
+    ],
+    "messages_page_up": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "pageup"
+      }
+    ],
+    "messages_page_down": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "pagedown"
+      }
+    ],
+    "messages_half_page_up": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "u"
+      }
+    ],
+    "messages_half_page_down": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      }
+    ],
+    "messages_first": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "g"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "home"
+      }
+    ],
+    "messages_last": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "g"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "end"
+      }
+    ],
+    "messages_copy": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "y"
+      }
+    ],
+    "messages_undo": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "u"
+      }
+    ],
+    "messages_redo": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "r"
+      }
+    ],
+    "messages_toggle_conceal": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "h"
+      }
+    ],
+    "model_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "m"
+      }
+    ],
+    "model_cycle_recent": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "f2"
+      }
+    ],
+    "model_cycle_recent_reverse": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "f2"
+      }
+    ],
+    "command_list": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "p"
+      }
+    ],
+    "settings": [],
+    "agent_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "a"
+      }
+    ],
+    "agent_cycle": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "tab"
+      }
+    ],
+    "agent_cycle_reverse": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "tab"
+      }
+    ],
+    "input_clear": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "c"
+      }
+    ],
+    "input_forward_delete": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      }
+    ],
+    "input_paste": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "v"
+      }
+    ],
+    "input_submit": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "return"
+      }
+    ],
+    "input_newline": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "return"
+      },
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "j"
+      }
+    ],
+    "history_previous": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "up"
+      }
+    ],
+    "history_next": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "down"
+      }
+    ],
+    "session_child_cycle": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "right"
+      }
+    ],
+    "session_child_cycle_reverse": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "left"
+      }
+    ]
+  }
+}
+[2025-11-21T04:27:50.778Z] [Settings] keyboard event: right
+[2025-11-21T04:27:50.782Z] [Route] navigating to {
+  "type": "settings",
+  "tab": "general"
+}
+[2025-11-21T04:27:50.782Z] [Route] Before navigate - store: {
+  "type": "settings"
+}
+[2025-11-21T04:27:50.782Z] [Route] After navigate - store: {
+  "type": "settings",
+  "tab": "general"
+}
+[2025-11-21T04:27:51.569Z] [CommandProvider] keyboard event: {
+  "name": "down",
+  "suspended": false,
+  "dialogStackLength": 0,
+  "defaultPrevented": false,
+  "keybindAll": {
+    "leader": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "x"
+      }
+    ],
+    "app_exit": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "c"
+      },
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "q"
+      }
+    ],
+    "editor_open": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "e"
+      }
+    ],
+    "theme_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "t"
+      }
+    ],
+    "sidebar_toggle": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "b"
+      }
+    ],
+    "status_view": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "s"
+      }
+    ],
+    "session_export": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "x"
+      }
+    ],
+    "session_new": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "n"
+      }
+    ],
+    "session_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "l"
+      }
+    ],
+    "session_timeline": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "g"
+      }
+    ],
+    "session_share": [],
+    "session_unshare": [],
+    "session_interrupt": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "escape"
+      }
+    ],
+    "session_compact": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "c"
+      }
+    ],
+    "messages_page_up": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "pageup"
+      }
+    ],
+    "messages_page_down": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "pagedown"
+      }
+    ],
+    "messages_half_page_up": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "u"
+      }
+    ],
+    "messages_half_page_down": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      }
+    ],
+    "messages_first": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "g"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "home"
+      }
+    ],
+    "messages_last": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "g"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "end"
+      }
+    ],
+    "messages_copy": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "y"
+      }
+    ],
+    "messages_undo": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "u"
+      }
+    ],
+    "messages_redo": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "r"
+      }
+    ],
+    "messages_toggle_conceal": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "h"
+      }
+    ],
+    "model_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "m"
+      }
+    ],
+    "model_cycle_recent": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "f2"
+      }
+    ],
+    "model_cycle_recent_reverse": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "f2"
+      }
+    ],
+    "command_list": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "p"
+      }
+    ],
+    "settings": [],
+    "agent_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "a"
+      }
+    ],
+    "agent_cycle": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "tab"
+      }
+    ],
+    "agent_cycle_reverse": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "tab"
+      }
+    ],
+    "input_clear": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "c"
+      }
+    ],
+    "input_forward_delete": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      }
+    ],
+    "input_paste": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "v"
+      }
+    ],
+    "input_submit": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "return"
+      }
+    ],
+    "input_newline": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "return"
+      },
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "j"
+      }
+    ],
+    "history_previous": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "up"
+      }
+    ],
+    "history_next": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "down"
+      }
+    ],
+    "session_child_cycle": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "right"
+      }
+    ],
+    "session_child_cycle_reverse": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "left"
+      }
+    ]
+  }
+}
+[2025-11-21T04:27:51.569Z] [Settings] keyboard event: down
+[2025-11-21T04:27:51.763Z] [CommandProvider] keyboard event: {
+  "name": "return",
+  "suspended": false,
+  "dialogStackLength": 0,
+  "defaultPrevented": false,
+  "keybindAll": {
+    "leader": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "x"
+      }
+    ],
+    "app_exit": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "c"
+      },
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "q"
+      }
+    ],
+    "editor_open": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "e"
+      }
+    ],
+    "theme_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "t"
+      }
+    ],
+    "sidebar_toggle": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "b"
+      }
+    ],
+    "status_view": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "s"
+      }
+    ],
+    "session_export": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "x"
+      }
+    ],
+    "session_new": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "n"
+      }
+    ],
+    "session_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "l"
+      }
+    ],
+    "session_timeline": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "g"
+      }
+    ],
+    "session_share": [],
+    "session_unshare": [],
+    "session_interrupt": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "escape"
+      }
+    ],
+    "session_compact": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "c"
+      }
+    ],
+    "messages_page_up": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "pageup"
+      }
+    ],
+    "messages_page_down": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "pagedown"
+      }
+    ],
+    "messages_half_page_up": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "u"
+      }
+    ],
+    "messages_half_page_down": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      }
+    ],
+    "messages_first": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "g"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "home"
+      }
+    ],
+    "messages_last": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "g"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "end"
+      }
+    ],
+    "messages_copy": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "y"
+      }
+    ],
+    "messages_undo": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "u"
+      }
+    ],
+    "messages_redo": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "r"
+      }
+    ],
+    "messages_toggle_conceal": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "h"
+      }
+    ],
+    "model_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "m"
+      }
+    ],
+    "model_cycle_recent": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "f2"
+      }
+    ],
+    "model_cycle_recent_reverse": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "f2"
+      }
+    ],
+    "command_list": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "p"
+      }
+    ],
+    "settings": [],
+    "agent_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "a"
+      }
+    ],
+    "agent_cycle": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "tab"
+      }
+    ],
+    "agent_cycle_reverse": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "tab"
+      }
+    ],
+    "input_clear": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "c"
+      }
+    ],
+    "input_forward_delete": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      }
+    ],
+    "input_paste": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "v"
+      }
+    ],
+    "input_submit": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "return"
+      }
+    ],
+    "input_newline": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "return"
+      },
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "j"
+      }
+    ],
+    "history_previous": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "up"
+      }
+    ],
+    "history_next": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "down"
+      }
+    ],
+    "session_child_cycle": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "right"
+      }
+    ],
+    "session_child_cycle_reverse": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "left"
+      }
+    ]
+  }
+}
+[2025-11-21T04:27:51.763Z] [Settings] keyboard event: return
+[2025-11-21T04:27:52.223Z] [CommandProvider] keyboard event: {
+  "name": "down",
+  "suspended": false,
+  "dialogStackLength": 1,
+  "defaultPrevented": false,
+  "keybindAll": {
+    "leader": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "x"
+      }
+    ],
+    "app_exit": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "c"
+      },
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "q"
+      }
+    ],
+    "editor_open": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "e"
+      }
+    ],
+    "theme_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "t"
+      }
+    ],
+    "sidebar_toggle": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "b"
+      }
+    ],
+    "status_view": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "s"
+      }
+    ],
+    "session_export": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "x"
+      }
+    ],
+    "session_new": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "n"
+      }
+    ],
+    "session_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "l"
+      }
+    ],
+    "session_timeline": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "g"
+      }
+    ],
+    "session_share": [],
+    "session_unshare": [],
+    "session_interrupt": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "escape"
+      }
+    ],
+    "session_compact": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "c"
+      }
+    ],
+    "messages_page_up": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "pageup"
+      }
+    ],
+    "messages_page_down": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "pagedown"
+      }
+    ],
+    "messages_half_page_up": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "u"
+      }
+    ],
+    "messages_half_page_down": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      }
+    ],
+    "messages_first": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "g"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "home"
+      }
+    ],
+    "messages_last": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "g"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "end"
+      }
+    ],
+    "messages_copy": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "y"
+      }
+    ],
+    "messages_undo": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "u"
+      }
+    ],
+    "messages_redo": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "r"
+      }
+    ],
+    "messages_toggle_conceal": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "h"
+      }
+    ],
+    "model_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "m"
+      }
+    ],
+    "model_cycle_recent": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "f2"
+      }
+    ],
+    "model_cycle_recent_reverse": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "f2"
+      }
+    ],
+    "command_list": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "p"
+      }
+    ],
+    "settings": [],
+    "agent_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "a"
+      }
+    ],
+    "agent_cycle": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "tab"
+      }
+    ],
+    "agent_cycle_reverse": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "tab"
+      }
+    ],
+    "input_clear": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "c"
+      }
+    ],
+    "input_forward_delete": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      }
+    ],
+    "input_paste": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "v"
+      }
+    ],
+    "input_submit": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "return"
+      }
+    ],
+    "input_newline": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "return"
+      },
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "j"
+      }
+    ],
+    "history_previous": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "up"
+      }
+    ],
+    "history_next": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "down"
+      }
+    ],
+    "session_child_cycle": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "right"
+      }
+    ],
+    "session_child_cycle_reverse": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "left"
+      }
+    ]
+  }
+}
+[2025-11-21T04:27:52.223Z] [Settings] keyboard event: down
+[2025-11-21T04:27:52.748Z] [CommandProvider] keyboard event: {
+  "name": "return",
+  "suspended": false,
+  "dialogStackLength": 1,
+  "defaultPrevented": false,
+  "keybindAll": {
+    "leader": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "x"
+      }
+    ],
+    "app_exit": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "c"
+      },
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "q"
+      }
+    ],
+    "editor_open": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "e"
+      }
+    ],
+    "theme_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "t"
+      }
+    ],
+    "sidebar_toggle": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "b"
+      }
+    ],
+    "status_view": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "s"
+      }
+    ],
+    "session_export": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "x"
+      }
+    ],
+    "session_new": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "n"
+      }
+    ],
+    "session_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "l"
+      }
+    ],
+    "session_timeline": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "g"
+      }
+    ],
+    "session_share": [],
+    "session_unshare": [],
+    "session_interrupt": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "escape"
+      }
+    ],
+    "session_compact": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "c"
+      }
+    ],
+    "messages_page_up": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "pageup"
+      }
+    ],
+    "messages_page_down": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "pagedown"
+      }
+    ],
+    "messages_half_page_up": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "u"
+      }
+    ],
+    "messages_half_page_down": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      }
+    ],
+    "messages_first": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "g"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "home"
+      }
+    ],
+    "messages_last": [
+      {
+        "ctrl": true,
+        "meta": true,
+        "shift": false,
+        "leader": false,
+        "name": "g"
+      },
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "end"
+      }
+    ],
+    "messages_copy": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "y"
+      }
+    ],
+    "messages_undo": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "u"
+      }
+    ],
+    "messages_redo": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "r"
+      }
+    ],
+    "messages_toggle_conceal": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "h"
+      }
+    ],
+    "model_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "m"
+      }
+    ],
+    "model_cycle_recent": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "f2"
+      }
+    ],
+    "model_cycle_recent_reverse": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "f2"
+      }
+    ],
+    "command_list": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "p"
+      }
+    ],
+    "settings": [],
+    "agent_list": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": true,
+        "name": "a"
+      }
+    ],
+    "agent_cycle": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "tab"
+      }
+    ],
+    "agent_cycle_reverse": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "tab"
+      }
+    ],
+    "input_clear": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "c"
+      }
+    ],
+    "input_forward_delete": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "d"
+      }
+    ],
+    "input_paste": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "v"
+      }
+    ],
+    "input_submit": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "return"
+      }
+    ],
+    "input_newline": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": true,
+        "leader": false,
+        "name": "return"
+      },
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "j"
+      }
+    ],
+    "history_previous": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "up"
+      }
+    ],
+    "history_next": [
+      {
+        "ctrl": false,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "down"
+      }
+    ],
+    "session_child_cycle": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "right"
+      }
+    ],
+    "session_child_cycle_reverse": [
+      {
+        "ctrl": true,
+        "meta": false,
+        "shift": false,
+        "leader": false,
+        "name": "left"
+      }
+    ]
+  }
+}
+[2025-11-21T04:27:52.749Z] [Settings] keyboard event: return
+[2025-11-21T04:27:52.775Z] [Sync] config.updated event received
+[2025-11-21T04:27:52.775Z] [Sync] Before reconcile - keybinds exists: true
+[2025-11-21T04:27:52.775Z] [Sync] Event config keys: [
+  "$schema",
+  "theme",
+  "small_model",
+  "agent"
+]
+[2025-11-21T04:27:52.775Z] [Sync] Event has keybinds: false
+[2025-11-21T04:27:52.775Z] [Keybind] keybinds memo recomputed - configKeybinds is: UNDEFINED
+[2025-11-21T04:27:52.775Z] [Keybind] parsed keys: 0 hasCommandList: false
+[2025-11-21T04:27:52.776Z] [Sync] After reconcile - keybinds exists: false
+[2025-11-21T04:27:53.327Z] [CommandProvider] keyboard event: {
+  "name": "escape",
+  "suspended": false,
+  "dialogStackLength": 0,
+  "defaultPrevented": false,
+  "keybindAll": {},
+  "matchesCommandList": false
+}
+[2025-11-21T04:27:53.328Z] [Settings] keyboard event: escape
+[2025-11-21T04:27:53.328Z] [Settings] Handling escape, navigating to home
+[2025-11-21T04:27:53.328Z] [Route] navigating to {
+  "type": "home"
+}
+[2025-11-21T04:27:53.328Z] [Route] Before navigate - store: {
+  "type": "settings",
+  "tab": "general"
+}
+[2025-11-21T04:27:53.335Z] [Route] After navigate - store: {
+  "type": "home",
+  "tab": "general"
+}
+[2025-11-21T04:27:54.812Z] [CommandProvider] keyboard event: {
+  "name": "/",
+  "suspended": false,
+  "dialogStackLength": 0,
+  "defaultPrevented": false,
+  "keybindAll": {},
+  "matchesCommandList": false
+}
+[2025-11-21T04:27:55.191Z] [CommandProvider] keyboard event: {
+  "name": "e",
+  "suspended": true,
+  "dialogStackLength": 0,
+  "defaultPrevented": false,
+  "keybindAll": {},
+  "matchesCommandList": false
+}
+[2025-11-21T04:27:55.502Z] [CommandProvider] keyboard event: {
+  "name": "x",
+  "suspended": true,
+  "dialogStackLength": 0,
+  "defaultPrevented": false,
+  "keybindAll": {},
+  "matchesCommandList": false
+}
+[2025-11-21T04:27:55.580Z] [CommandProvider] keyboard event: {
+  "name": "i",
+  "suspended": true,
+  "dialogStackLength": 0,
+  "defaultPrevented": false,
+  "keybindAll": {},
+  "matchesCommandList": false
+}
+[2025-11-21T04:27:55.696Z] [CommandProvider] keyboard event: {
+  "name": "t",
+  "suspended": true,
+  "dialogStackLength": 0,
+  "defaultPrevented": false,
+  "keybindAll": {},
+  "matchesCommandList": false
+}
+[2025-11-21T04:27:55.790Z] [CommandProvider] keyboard event: {
+  "name": "return",
+  "suspended": true,
+  "dialogStackLength": 0,
+  "defaultPrevented": false,
+  "keybindAll": {},
+  "matchesCommandList": false
+}

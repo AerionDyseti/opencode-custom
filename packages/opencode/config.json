@@ -1,0 +1,13 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "system",
+  "small_model": "opencode/gpt-5-nano",
+  "agent": {
+    "build": {
+      "model": "opencode/big-pickle"
+    },
+    "explain": {
+      "model": "opencode/big-pickle"
+    }
+  }
+}

@@ -92,6 +92,31 @@ export function DialogSelect<T>(props: DialogSelectProps<T>) {
     scroll.scrollTo(0)
   })
 
+  // Initialize selection to current item if provided
+  createEffect(() => {
+    const currentIndex = flat().findIndex((x) => isDeepEqual(x.value, props.current))
+    if (currentIndex >= 0 && store.filter === "") {
+      setStore("selected", currentIndex)
+      // Scroll to selected item after a brief delay to ensure rendering
+      setTimeout(() => {
+        const target = scroll.getChildren().find((child) => {
+          return child.id === JSON.stringify(flat()[currentIndex]?.value)
+        })
+        if (!target) return
+        const y = target.y - scroll.y
+        if (y >= scroll.height) {
+          scroll.scrollBy(y - scroll.height + 1)
+        }
+        if (y < 0) {
+          scroll.scrollBy(y)
+          if (isDeepEqual(flat()[0].value, flat()[currentIndex]?.value)) {
+            scroll.scrollTo(0)
+          }
+        }
+      }, 10)
+    }
+  })
+
   function move(direction: number) {
     let next = store.selected + direction
     if (next < 0) next = flat().length - 1
