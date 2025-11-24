@@ -18,20 +18,20 @@ const NotFoundError = NamedError.create(
 
 /**
  * Multi-database SQLite backend
- * 
+ *
  * Per-project storage model:
  * - Stores data in project's .opencode/ directory
  * - One sessions.db for session metadata per project
  * - One {sessionID}.db per session for messages/parts
  * - Embeddings stored alongside messages (future: sqlite-vec)
- * 
+ *
  * Structure:
  * {project-root}/.opencode/
  *   sessions.db              <- Session metadata only
  *   sessions/
  *     {sessionID}.db         <- Messages, parts, embeddings for session
  *     {sessionID2}.db
- * 
+ *
  * Philosophy: Per-project by default, global only for truly global data
  */
 export class MultiSqliteBackend implements StorageBackend.Backend {
@@ -43,7 +43,7 @@ export class MultiSqliteBackend implements StorageBackend.Backend {
   constructor(projectDir: string) {
     this.baseDir = path.join(projectDir, ".opencode")
     log.info("initializing multi-sqlite backend", { baseDir: this.baseDir })
-    
+
     this.ensureDirectories()
     this.sessionsMetaDB = this.initSessionsMetaDB()
   }
@@ -61,7 +61,7 @@ export class MultiSqliteBackend implements StorageBackend.Backend {
   private initSessionsMetaDB(): Database {
     const dbPath = path.join(this.baseDir, "sessions.db")
     const db = new Database(dbPath, { create: true })
-    
+
     db.exec("PRAGMA journal_mode = WAL")
     db.exec("PRAGMA synchronous = NORMAL")
 
@@ -160,9 +160,7 @@ export class MultiSqliteBackend implements StorageBackend.Backend {
 
     if (parsed.type === "session") {
       // Read from sessions.db
-      const stmt = this.sessionsMetaDB.query<{ data: string }, string>(
-        "SELECT data FROM sessions WHERE session_id = ?"
-      )
+      const stmt = this.sessionsMetaDB.query<{ data: string }, string>("SELECT data FROM sessions WHERE session_id = ?")
       const row = stmt.get(parsed.sessionID!)
 
       if (!row) {
@@ -313,7 +311,7 @@ export class MultiSqliteBackend implements StorageBackend.Backend {
       // List sessions from sessions.db
       const projectID = prefix[1]
       const stmt = this.sessionsMetaDB.query<{ session_id: string }, string>(
-        "SELECT session_id FROM sessions WHERE project_id = ? ORDER BY updated_at DESC"
+        "SELECT session_id FROM sessions WHERE project_id = ? ORDER BY updated_at DESC",
       )
       const rows = stmt.all(projectID)
 
@@ -326,9 +324,7 @@ export class MultiSqliteBackend implements StorageBackend.Backend {
       const db = this.getSessionDB(sessionID)
 
       const pattern = prefixStr ? `${prefixStr}/%` : "%"
-      const stmt = db.query<{ key: string }, string>(
-        "SELECT key FROM storage WHERE key LIKE ? ORDER BY key"
-      )
+      const stmt = db.query<{ key: string }, string>("SELECT key FROM storage WHERE key LIKE ? ORDER BY key")
       const rows = stmt.all(pattern)
 
       return rows.map((row) => row.key.split("/"))
@@ -336,8 +332,6 @@ export class MultiSqliteBackend implements StorageBackend.Backend {
 
     return []
   }
-
-
 
   async close(): Promise<void> {
     log.info("closing databases")

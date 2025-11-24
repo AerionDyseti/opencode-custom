@@ -11,6 +11,7 @@ This document outlines the core principles and design decisions that guide devel
 **Rule:** Default to storing data and configuration at the project level. Reserve global storage only for truly global data (user preferences, credentials, etc.).
 
 **Rationale:**
+
 - Projects are self-contained and portable
 - Team collaboration is easier (share project, share context)
 - Multi-project workflows don't create conflicts
@@ -19,11 +20,13 @@ This document outlines the core principles and design decisions that guide devel
 - Enables project-specific features (embeddings, project-specific models, etc.)
 
 **Examples:**
+
 - ✅ **Per-Project**: Session data, message history, embeddings, project-specific settings
 - ✅ **Global**: User authentication tokens, default model preferences, UI theme
 - ❌ **Anti-pattern**: Storing all sessions in `~/.opencode/data/` indexed by project hash
 
 **Implementation:**
+
 ```
 /home/user/my-project/
   .opencode/              <- Project-specific OpenCode data
@@ -43,6 +46,7 @@ This document outlines the core principles and design decisions that guide devel
 **Rule:** We do not commit or push code with failing tests. Period.
 
 **Process:**
+
 1. Make changes
 2. Run `bun test` (all 243+ tests must pass)
 3. Run `bun run typecheck` (no TypeScript errors)
@@ -53,6 +57,7 @@ This document outlines the core principles and design decisions that guide devel
 5. Only commit when everything passes
 
 **Rationale:**
+
 - Broken tests indicate broken assumptions
 - "It's probably fine" leads to cascading failures
 - Test failures catch regressions early
@@ -60,6 +65,7 @@ This document outlines the core principles and design decisions that guide devel
 - Professional engineering standards
 
 **No Exceptions:**
+
 - "Tests were already failing" → Fix them before your changes
 - "Only one test failing" → Fix it
 - "Test is unrelated to my changes" → Fix it anyway or investigate why it's failing
@@ -85,6 +91,7 @@ This section tracks major design decisions and their justifications.
 **Decision:** Use per-project, per-session SQLite databases instead of JSON files or single global DB.
 
 **Structure:**
+
 ```
 {project-root}/.opencode/
   sessions.db              <- Session metadata
@@ -93,6 +100,7 @@ This section tracks major design decisions and their justifications.
 ```
 
 **Rationale:**
+
 - Aligns with "per-project" principle
 - Enables future embedding support (sqlite-vec)
 - No write contention between sessions
@@ -101,6 +109,7 @@ This section tracks major design decisions and their justifications.
 - Single file per session vs 1000s of JSON files
 
 **Considered Alternatives:**
+
 1. ~~Single global SQLite DB~~ - Violates per-project principle
 2. ~~JSON files~~ - Slow, hard to query, many files
 3. ~~Per-project single DB~~ - Write contention, harder to isolate sessions
@@ -112,12 +121,14 @@ This section tracks major design decisions and their justifications.
 **Decision:** Build TUI-based settings panel instead of only config file editing.
 
 **Rationale:**
+
 - Lower barrier to entry for users
 - Visual feedback (theme preview, model selection)
 - Discoverability of features
 - Agent-aware configuration (show current agent's model)
 
 **Trade-offs:**
+
 - More code to maintain vs simple config file
 - TUI rendering bugs are harder to debug
 - But: Better UX wins for most users
@@ -131,11 +142,13 @@ This section tracks major design decisions and their justifications.
 Don't default to `~/.opencode/` for data that logically belongs to a project.
 
 **Bad:**
+
 ```typescript
 const sessionPath = path.join(os.homedir(), ".opencode", "sessions", projectID, sessionID)
 ```
 
 **Good:**
+
 ```typescript
 const sessionPath = path.join(projectRoot, ".opencode", "sessions", sessionID)
 ```
@@ -145,6 +158,7 @@ const sessionPath = path.join(projectRoot, ".opencode", "sessions", sessionID)
 Don't skip tests "just this once" or because you're confident.
 
 **Bad:**
+
 ```bash
 git commit -m "quick fix"
 git push
@@ -152,6 +166,7 @@ git push
 ```
 
 **Good:**
+
 ```bash
 bun test && bun run typecheck
 git commit -m "fix: whatever"
@@ -163,6 +178,7 @@ git push
 Don't ignore pre-existing test failures. Fix them or track them down.
 
 **Bad:**
+
 ```
 207 tests passing
 1 test failing (pre-existing)
@@ -170,6 +186,7 @@ Don't ignore pre-existing test failures. Fix them or track them down.
 ```
 
 **Good:**
+
 ```
 *investigates failing test*
 *fixes root cause OR fixes test*
@@ -188,6 +205,7 @@ When adding new features:
    - Only go global if it must be shared across all projects
 
 2. **Test:** Before committing:
+
    ```bash
    bun test           # Must pass
    bun run typecheck  # Must pass
