@@ -1,6 +1,6 @@
 import { InputRenderable, ScrollBoxRenderable, TextAttributes } from "@opentui/core"
 import { useTheme } from "@tui/context/theme"
-import { createEffect, createMemo, For, Show } from "solid-js"
+import { createEffect, createMemo, For, onMount, Show } from "solid-js"
 import { createStore } from "solid-js/store"
 import { useKeyboard, useTerminalDimensions } from "@opentui/solid"
 import { useDialog, type DialogContext } from "@tui/ui/dialog"
@@ -153,6 +153,10 @@ export function DialogKeybinds(props: DialogKeybindsProps) {
   const height = createMemo(() => Math.min(filtered().length, Math.floor(dimensions().height / 2) - 6))
 
   const selected = createMemo(() => filtered()[store.selected])
+
+  onMount(() => {
+    dialog.setSize("large")
+  })
 
   createEffect(() => {
     store.filter

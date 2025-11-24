@@ -9,7 +9,7 @@ import { useKeyboard } from "@opentui/solid"
 import { useDialog } from "@tui/ui/dialog"
 import { DialogSelect } from "@tui/ui/dialog-select"
 import { DialogPrompt } from "@tui/ui/dialog-prompt"
-import { DialogKeybinds } from "@tui/component/dialog-keybinds"
+// import { DialogKeybinds } from "@tui/component/dialog-keybinds" // Disabled - see ROADMAP.md
 import { useLocal } from "@tui/context/local"
 import { sortBy, flatMap, pipe, entries, isDeepEqual } from "remeda"
 
@@ -196,35 +196,38 @@ export function GeneralSettings() {
         ))
       },
     },
-    {
-      id: "keybinds",
-      label: "Keybinds",
-      value: "Configure keyboard shortcuts",
-      onActivate: async () => {
-        const changes = await DialogKeybinds.show(dialog)
-        if (changes && Object.keys(changes).length > 0) {
-          try {
-            await sdk.client.config.update({
-              body: {
-                keybinds: {
-                  ...sync.data.config.keybinds,
-                  ...changes,
-                },
-              },
-            })
-            toast.show({
-              message: `Updated ${Object.keys(changes).length} keybind(s). Restart may be required.`,
-              variant: "success",
-            })
-          } catch (error) {
-            toast.show({
-              message: `Failed to save keybinds: ${error}`,
-              variant: "error",
-            })
-          }
-        }
-      },
-    },
+    // NOTE: Keybinds editor temporarily disabled due to TUI rendering issues
+    // See ROADMAP.md - Tech Debt section for details
+    // Users can still edit keybinds manually in opencode.json
+    // {
+    //   id: "keybinds",
+    //   label: "Keybinds",
+    //   value: "Configure keyboard shortcuts",
+    //   onActivate: async () => {
+    //     const changes = await DialogKeybinds.show(dialog)
+    //     if (changes && Object.keys(changes).length > 0) {
+    //       try {
+    //         await sdk.client.config.update({
+    //           body: {
+    //             keybinds: {
+    //               ...sync.data.config.keybinds,
+    //               ...changes,
+    //             },
+    //           },
+    //         })
+    //         toast.show({
+    //           message: `Updated ${Object.keys(changes).length} keybind(s). Restart may be required.`,
+    //           variant: "success",
+    //         })
+    //       } catch (error) {
+    //         toast.show({
+    //           message: `Failed to save keybinds: ${error}`,
+    //           variant: "error",
+    //         })
+    //       }
+    //     }
+    //   },
+    // },
     {
       id: "model",
       label: `Model (${local.agent.current()?.name ?? "..."})`,
