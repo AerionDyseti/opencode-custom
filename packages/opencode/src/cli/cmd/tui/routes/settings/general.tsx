@@ -8,6 +8,7 @@ import { useToast } from "@tui/ui/toast"
 import { useKeyboard } from "@opentui/solid"
 import { useDialog } from "@tui/ui/dialog"
 import { DialogSelect } from "@tui/ui/dialog-select"
+import { DialogPrompt } from "@tui/ui/dialog-prompt"
 import { useLocal } from "@tui/context/local"
 import { sortBy, flatMap, pipe, entries, isDeepEqual } from "remeda"
 
@@ -149,21 +150,25 @@ export function GeneralSettings() {
       id: "username",
       label: "Username",
       value: sync.data.config.username ?? "Not set",
-      onActivate: () => {
-        const originalUsername = sync.data.config.username || ""
-        let confirmed = false
+      onActivate: async () => {
+        const newUsername = await DialogPrompt.show(dialog, "Set Username", sync.data.config.username || "")
 
-        // For now, just show a toast since we don't have a proper input dialog
-        toast.show({
-          message: "Username setting coming soon - edit opencode.json to change",
-          variant: "info",
-        })
-
-        // For now, just show a toast since we don't have a proper input dialog
-        toast.show({
-          message: "Username setting coming soon - edit opencode.json to change",
-          variant: "info",
-        })
+        if (newUsername !== null && newUsername !== sync.data.config.username) {
+          try {
+            await sdk.client.config.update({
+              body: { username: newUsername },
+            })
+            toast.show({
+              message: newUsername ? `Username set to ${newUsername}` : "Username cleared",
+              variant: "success",
+            })
+          } catch (error) {
+            toast.show({
+              message: `Failed to save username: ${error}`,
+              variant: "error",
+            })
+          }
+        }
       },
     },
     {
