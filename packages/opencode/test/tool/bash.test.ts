@@ -4,6 +4,7 @@ import { BashTool } from "../../src/tool/bash"
 import { Instance } from "../../src/project/instance"
 import { Permission } from "../../src/permission"
 import { Log } from "../../src/util/log"
+import { Agent } from "../../src/agent/agent"
 
 Log.init({ print: false })
 
@@ -43,20 +44,36 @@ describe("tool.bash", () => {
   })
 
   test("cd ../ should fail outside of project root", async () => {
-    await Instance.provide({
-      directory: projectRoot,
-      fn: async () => {
-        const bash = await BashTool.init()
-        expect(
-          bash.execute(
-            {
-              command: "cd ../",
-              description: "Try to cd to parent directory",
-            },
-            ctx,
-          ),
-        ).rejects.toThrow("This command references paths outside of")
+    const originalGet = Agent.get
+    // Mock Agent.get to return agent with external_directory='deny'
+    Agent.get = mock(async () => ({
+      permission: {
+        edit: "allow" as const,
+        bash: { "*": "allow" as const },
+        webfetch: "allow" as const,
+        external_directory: "deny" as const,
+        doom_loop: "ask" as const,
       },
-    })
+    })) as any
+
+    try {
+      await Instance.provide({
+        directory: projectRoot,
+        fn: async () => {
+          const bash = await BashTool.init()
+          await expect(
+            bash.execute(
+              {
+                command: "cd ../",
+                description: "Try to cd to parent directory",
+              },
+              ctx,
+            ),
+          ).rejects.toThrow("This command references paths outside of")
+        },
+      })
+    } finally {
+      Agent.get = originalGet
+    }
   })
 })
