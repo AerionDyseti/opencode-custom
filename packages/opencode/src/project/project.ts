@@ -37,7 +37,6 @@ export namespace Project {
           created: Date.now(),
         },
       }
-      await Storage.write<Info>(["project", "global"], project)
       return project
     }
     let worktree = path.dirname(git)
@@ -71,7 +70,6 @@ export namespace Project {
           created: Date.now(),
         },
       }
-      await Storage.write<Info>(["project", "global"], project)
       return project
     }
     worktree = await $`git rev-parse --path-format=absolute --show-toplevel`
@@ -88,7 +86,6 @@ export namespace Project {
         created: Date.now(),
       },
     }
-    await Storage.write<Info>(["project", id], project)
     return project
   }
 

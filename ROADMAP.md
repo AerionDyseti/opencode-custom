@@ -4,6 +4,14 @@ This document tracks planned improvements, features, and technical debt for the 
 
 ---
 
+## Current Work
+
+_This section tracks what we're actively working on right now._
+
+- Nothing in progress currently (ready to test and commit SQLite implementation)
+
+---
+
 ## Tech Debt
 
 ### Fix Keybind Settings Dialog
