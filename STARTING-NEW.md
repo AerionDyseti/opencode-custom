@@ -43,86 +43,87 @@ OpenCode is built as a layered architecture with clear separation of concerns:
 
 #### Core Runtime & Build Tools
 
-| Category | Choice | Version | Purpose | Alternatives |
-|----------|--------|---------|---------|--------------|
-| **Runtime** | Bun | 1.3.2 | Fast JS/TS runtime with built-in bundler | Node.js + npm/yarn/pnpm |
-| **Language** | TypeScript | 5.8.2 | Type safety and modern JS features | JavaScript, Flow, JSDoc |
-| **Monorepo** | Turbo | 2.5.6 | Fast incremental builds, smart caching | Lerna, Nx, Rush, Bazel |
-| **Package Manager** | Bun | 1.3.2 | Fast package installation | npm, yarn, pnpm |
+| Category            | Choice     | Version | Purpose                                  | Alternatives            |
+| ------------------- | ---------- | ------- | ---------------------------------------- | ----------------------- |
+| **Runtime**         | Bun        | 1.3.2   | Fast JS/TS runtime with built-in bundler | Node.js + npm/yarn/pnpm |
+| **Language**        | TypeScript | 5.8.2   | Type safety and modern JS features       | JavaScript, Flow, JSDoc |
+| **Monorepo**        | Turbo      | 2.5.6   | Fast incremental builds, smart caching   | Lerna, Nx, Rush, Bazel  |
+| **Package Manager** | Bun        | 1.3.2   | Fast package installation                | npm, yarn, pnpm         |
 
 #### CLI & Terminal UI
 
-| Category | Choice | Version | Purpose | Alternatives |
-|----------|--------|---------|---------|--------------|
-| **CLI Framework** | Yargs | 18.0.0 | Command parsing, help generation | Commander.js, Oclif, Meow, Inquirer |
-| **TUI Framework** | OpenTUI | 0.1.47 | Terminal UI components | Blessed, Ink (React), Vorpal |
-| **UI Library** | Solid.js | 1.9.9 | Reactive UI with fine-grained updates | React, Vue, Svelte, Preact |
-| **Prompts** | @clack/prompts | 1.0.0-alpha.1 | Beautiful CLI prompts | Inquirer.js, Prompts, Enquirer |
+| Category          | Choice         | Version       | Purpose                               | Alternatives                        |
+| ----------------- | -------------- | ------------- | ------------------------------------- | ----------------------------------- |
+| **CLI Framework** | Yargs          | 18.0.0        | Command parsing, help generation      | Commander.js, Oclif, Meow, Inquirer |
+| **TUI Framework** | OpenTUI        | 0.1.47        | Terminal UI components                | Blessed, Ink (React), Vorpal        |
+| **UI Library**    | Solid.js       | 1.9.9         | Reactive UI with fine-grained updates | React, Vue, Svelte, Preact          |
+| **Prompts**       | @clack/prompts | 1.0.0-alpha.1 | Beautiful CLI prompts                 | Inquirer.js, Prompts, Enquirer      |
 
 #### AI & LLM Integration
 
-| Category | Choice | Version | Purpose | Alternatives |
-|----------|--------|---------|---------|--------------|
-| **AI SDK** | Vercel AI SDK | 5.0.8 | Unified LLM interface, streaming | LangChain, Direct provider SDKs |
-| **AWS AI** | @ai-sdk/amazon-bedrock | 2.2.10 | Amazon Bedrock integration | AWS SDK direct |
-| **Google AI** | @ai-sdk/google-vertex | 3.0.16 | Google Vertex AI integration | Google Cloud SDK direct |
+| Category      | Choice                 | Version | Purpose                          | Alternatives                    |
+| ------------- | ---------------------- | ------- | -------------------------------- | ------------------------------- |
+| **AI SDK**    | Vercel AI SDK          | 5.0.8   | Unified LLM interface, streaming | LangChain, Direct provider SDKs |
+| **AWS AI**    | @ai-sdk/amazon-bedrock | 2.2.10  | Amazon Bedrock integration       | AWS SDK direct                  |
+| **Google AI** | @ai-sdk/google-vertex  | 3.0.16  | Google Vertex AI integration     | Google Cloud SDK direct         |
 
 #### Protocols & Communication
 
-| Category | Choice | Version | Purpose | Alternatives |
-|----------|--------|---------|---------|--------------|
-| **MCP** | @modelcontextprotocol/sdk | 1.15.1 | Model Context Protocol | Custom implementation |
-| **ACP** | @agentclientprotocol/sdk | 0.5.1 | Agent Client Protocol | Custom agent protocol |
-| **LSP** | vscode-jsonrpc | 8.2.1 | Language Server Protocol | jayson, node-json-rpc |
-| **HTTP Framework** | Hono | 4.7.10 | Lightweight web server | Express, Fastify, Koa |
+| Category           | Choice                    | Version | Purpose                  | Alternatives          |
+| ------------------ | ------------------------- | ------- | ------------------------ | --------------------- |
+| **MCP**            | @modelcontextprotocol/sdk | 1.15.1  | Model Context Protocol   | Custom implementation |
+| **ACP**            | @agentclientprotocol/sdk  | 0.5.1   | Agent Client Protocol    | Custom agent protocol |
+| **LSP**            | vscode-jsonrpc            | 8.2.1   | Language Server Protocol | jayson, node-json-rpc |
+| **HTTP Framework** | Hono                      | 4.7.10  | Lightweight web server   | Express, Fastify, Koa |
 
 #### Storage & Database
 
-| Category | Choice | Version | Purpose | Alternatives |
-|----------|--------|---------|---------|--------------|
-| **Database** | SQLite | Built-in | Local data storage | PostgreSQL, MySQL, DuckDB |
-| **Future Embeddings** | sqlite-vec | Planned | Vector similarity search | pgvector, Pinecone, Weaviate |
+| Category              | Choice     | Version  | Purpose                  | Alternatives                 |
+| --------------------- | ---------- | -------- | ------------------------ | ---------------------------- |
+| **Database**          | SQLite     | Built-in | Local data storage       | PostgreSQL, MySQL, DuckDB    |
+| **Future Embeddings** | sqlite-vec | Planned  | Vector similarity search | pgvector, Pinecone, Weaviate |
 
 #### Validation & Data
 
-| Category | Choice | Version | Purpose | Alternatives |
-|----------|--------|---------|---------|--------------|
-| **Schema Validation** | Zod | 4.1.8 | Runtime validation with TS inference | Yup, Joi, io-ts, Superstruct |
-| **Functional Utils** | Remeda | 2.26.0 | FP utilities, TS-first | Lodash, Ramda, Rambda |
-| **Unique IDs** | ULID | 3.0.1 | Sortable, timestamp-based IDs | UUID, nanoid, cuid |
-| **Fuzzy Search** | Fuzzysort | 3.1.0 | Fast fuzzy string matching | fuse.js, fuzzy, string-similarity |
+| Category              | Choice    | Version | Purpose                              | Alternatives                      |
+| --------------------- | --------- | ------- | ------------------------------------ | --------------------------------- |
+| **Schema Validation** | Zod       | 4.1.8   | Runtime validation with TS inference | Yup, Joi, io-ts, Superstruct      |
+| **Functional Utils**  | Remeda    | 2.26.0  | FP utilities, TS-first               | Lodash, Ramda, Rambda             |
+| **Unique IDs**        | ULID      | 3.0.1   | Sortable, timestamp-based IDs        | UUID, nanoid, cuid                |
+| **Fuzzy Search**      | Fuzzysort | 3.1.0   | Fast fuzzy string matching           | fuse.js, fuzzy, string-similarity |
 
 #### File & Code Processing
 
-| Category | Choice | Version | Purpose | Alternatives |
-|----------|--------|---------|---------|--------------|
-| **File Watching** | @parcel/watcher | 2.5.1 | Fast FS watching | Chokidar, node-watch, watchpack |
-| **Code Parsing** | tree-sitter | 0.25.10 | Incremental parsing | Acorn, Babel parser, regex |
-| **HTML→Markdown** | Turndown | 7.2.0 | Convert HTML to Markdown | html-to-markdown, showdown |
-| **JSONC Parser** | jsonc-parser | 3.3.1 | Parse JSON with comments | JSON5, strip-json-comments |
-| **Diff Algorithm** | Diff | 8.0.2 | Text difference calculation | jsdiff, diff-match-patch |
+| Category           | Choice          | Version | Purpose                     | Alternatives                    |
+| ------------------ | --------------- | ------- | --------------------------- | ------------------------------- |
+| **File Watching**  | @parcel/watcher | 2.5.1   | Fast FS watching            | Chokidar, node-watch, watchpack |
+| **Code Parsing**   | tree-sitter     | 0.25.10 | Incremental parsing         | Acorn, Babel parser, regex      |
+| **HTML→Markdown**  | Turndown        | 7.2.0   | Convert HTML to Markdown    | html-to-markdown, showdown      |
+| **JSONC Parser**   | jsonc-parser    | 3.3.1   | Parse JSON with comments    | JSON5, strip-json-comments      |
+| **Diff Algorithm** | Diff            | 8.0.2   | Text difference calculation | jsdiff, diff-match-patch        |
 
 #### Development Tools
 
-| Category | Choice | Version | Purpose | Alternatives |
-|----------|--------|---------|---------|--------------|
-| **Formatter** | Prettier | 3.6.2 | Code formatting | ESLint --fix, dprint |
-| **Git Hooks** | Husky | 9.1.7 | Pre-commit/push hooks | simple-git-hooks, lint-staged |
-| **Testing** | Bun Test | Built-in | Unit testing | Jest, Vitest, Mocha |
+| Category      | Choice   | Version  | Purpose               | Alternatives                  |
+| ------------- | -------- | -------- | --------------------- | ----------------------------- |
+| **Formatter** | Prettier | 3.6.2    | Code formatting       | ESLint --fix, dprint          |
+| **Git Hooks** | Husky    | 9.1.7    | Pre-commit/push hooks | simple-git-hooks, lint-staged |
+| **Testing**   | Bun Test | Built-in | Unit testing          | Jest, Vitest, Mocha           |
 
 #### GitHub & Auth
 
-| Category | Choice | Version | Purpose | Alternatives |
-|----------|--------|---------|---------|--------------|
-| **GitHub API** | @octokit/rest | 22.0.0 | GitHub REST API | Direct API calls |
-| **GitHub GraphQL** | @octokit/graphql | 9.0.2 | GitHub GraphQL API | Apollo Client, urql |
-| **Authentication** | @openauthjs/openauth | 0.0.0-* | Multi-provider auth | Auth0, Clerk, NextAuth |
+| Category           | Choice               | Version  | Purpose             | Alternatives           |
+| ------------------ | -------------------- | -------- | ------------------- | ---------------------- |
+| **GitHub API**     | @octokit/rest        | 22.0.0   | GitHub REST API     | Direct API calls       |
+| **GitHub GraphQL** | @octokit/graphql     | 9.0.2    | GitHub GraphQL API  | Apollo Client, urql    |
+| **Authentication** | @openauthjs/openauth | 0.0.0-\* | Multi-provider auth | Auth0, Clerk, NextAuth |
 
 ### Key Framework Decisions & Rationale
 
 #### Why Bun over Node.js?
 
 **Chosen for:**
+
 - 10-100x faster startup time
 - Native TypeScript execution (no compilation step)
 - Built-in bundler and test runner
@@ -130,6 +131,7 @@ OpenCode is built as a layered architecture with clear separation of concerns:
 - SQLite built-in
 
 **Trade-offs:**
+
 - ✅ Significantly faster development cycle
 - ✅ Single tool instead of Node + npm + bundler + test runner
 - ❌ Smaller ecosystem (though Node compatibility is good)
@@ -138,12 +140,14 @@ OpenCode is built as a layered architecture with clear separation of concerns:
 #### Why Solid.js over React for TUI?
 
 **Chosen for:**
+
 - Fine-grained reactivity (perfect for terminal updates)
 - No virtual DOM overhead (direct updates)
 - Smaller bundle size (7kb vs React's 45kb)
 - Better performance for frequent updates
 
 **Trade-offs:**
+
 - ✅ Superior performance for reactive TUI
 - ✅ Simpler mental model (no hooks rules)
 - ❌ Smaller ecosystem than React
@@ -152,6 +156,7 @@ OpenCode is built as a layered architecture with clear separation of concerns:
 #### Why Vercel AI SDK over LangChain?
 
 **Chosen for:**
+
 - Simpler, more focused API
 - Better streaming support
 - Framework agnostic
@@ -159,6 +164,7 @@ OpenCode is built as a layered architecture with clear separation of concerns:
 - Direct provider integration
 
 **Trade-offs:**
+
 - ✅ Easier to understand and debug
 - ✅ Better TypeScript support
 - ❌ Less features than LangChain
@@ -167,12 +173,14 @@ OpenCode is built as a layered architecture with clear separation of concerns:
 #### Why Hono over Express?
 
 **Chosen for:**
+
 - Built for edge/modern runtimes
 - First-class TypeScript
 - Lighter weight (no legacy baggage)
 - Works perfectly with Bun
 
 **Trade-offs:**
+
 - ✅ Modern, clean API
 - ✅ Better performance
 - ❌ Smaller ecosystem
@@ -181,12 +189,14 @@ OpenCode is built as a layered architecture with clear separation of concerns:
 #### Why Zod over other validators?
 
 **Chosen for:**
+
 - TypeScript inference from schemas
 - Composable schemas
 - Great error messages
 - Active development
 
 **Trade-offs:**
+
 - ✅ Best TypeScript integration
 - ✅ Runtime and compile-time safety
 - ❌ Slightly larger bundle than Yup
@@ -207,11 +217,12 @@ await Instance.provide({
   fn: async () => {
     // All code here has access to Instance.directory, Instance.project, etc.
     const config = await Config.load() // Automatically uses Instance context
-  }
+  },
 })
 ```
 
 **Why it matters:**
+
 - Enables multi-project support
 - Provides automatic cleanup
 - Prevents state leakage between projects
@@ -237,9 +248,12 @@ Decoupled communication between components.
 
 ```typescript
 // Define typed event
-const ConfigUpdated = Bus.event("config.updated", z.object({
-  path: z.string()
-}))
+const ConfigUpdated = Bus.event(
+  "config.updated",
+  z.object({
+    path: z.string(),
+  }),
+)
 
 // Subscribe
 Bus.on(ConfigUpdated, (data) => {
@@ -277,24 +291,24 @@ graph TD
     Context --> Instance[Instance Management]
     Instance --> State[State Management]
     Instance --> Project[Project Detection]
-    
+
     Instance --> Storage[Storage Layer]
     Instance --> Bus[Event Bus]
     Instance --> Config[Configuration]
-    
+
     Config --> Auth[Authentication]
     Config --> Plugin[Plugin System]
-    
+
     Plugin --> Provider[AI Providers]
     Plugin --> Tool[Tool System]
     Plugin --> Agent[Agent System]
-    
+
     Tool --> Permission[Permissions]
-    
+
     Provider --> Session[Session Management]
     Tool --> Session
     Agent --> Session
-    
+
     Session --> CLI[CLI Interface]
     Session --> TUI[TUI Interface]
 ```
@@ -429,7 +443,7 @@ bun add -d typescript turbo prettier husky
 # Install runtime dependencies for main package
 cd packages/opencode
 bun add yargs @opentui/core @opentui/solid solid-js
-bun add ai @ai-sdk/openai @ai-sdk/anthropic  
+bun add ai @ai-sdk/openai @ai-sdk/anthropic
 bun add hono @hono/zod-validator zod
 bun add @modelcontextprotocol/sdk @agentclientprotocol/sdk
 bun add vscode-jsonrpc vscode-languageserver-types
@@ -467,7 +481,7 @@ import { AsyncLocalStorage } from "async_hooks"
 
 export function createContext<T>(name: string) {
   const storage = new AsyncLocalStorage<T>()
-  
+
   return {
     provide<R>(value: T, fn: () => R): R {
       return storage.run(value, fn)
@@ -476,7 +490,7 @@ export function createContext<T>(name: string) {
       const value = storage.getStore()
       if (!value) throw new Error(`No context for ${name}`)
       return value
-    }
+    },
   }
 }
 ```
@@ -495,24 +509,18 @@ interface InstanceContext {
 const context = createContext<InstanceContext>("instance")
 
 export const Instance = {
-  async provide<R>(opts: {
-    directory: string
-    fn: () => R
-  }): Promise<R> {
+  async provide<R>(opts: { directory: string; fn: () => R }): Promise<R> {
     const project = await detectProject(opts.directory)
-    return context.provide(
-      { directory: opts.directory, project },
-      opts.fn
-    )
+    return context.provide({ directory: opts.directory, project }, opts.fn)
   },
-  
+
   get directory() {
     return context.use().directory
   },
-  
+
   state<S>(init: () => S): () => S {
     // Lazy state implementation
-  }
+  },
 }
 ```
 
@@ -526,12 +534,12 @@ export namespace Storage {
     const backend = new MultiSqliteBackend(dir)
     return { backend }
   })
-  
+
   export async function read<T>(key: string[]): Promise<T> {
     const { backend } = await state()
     return backend.read(key)
   }
-  
+
   // write, update, remove, list...
 }
 ```
@@ -542,16 +550,16 @@ export namespace Storage {
 // src/bus/index.ts
 export namespace Bus {
   const state = Instance.state(() => new EventEmitter())
-  
+
   export function event<T>(name: string, schema: z.ZodSchema<T>) {
     return { name, schema }
   }
-  
+
   export function on<T>(event: Event<T>, handler: (data: T) => void) {
     const bus = state()
     bus.on(event.name, handler)
   }
-  
+
   export function emit<T>(event: Event<T>, data: T) {
     const bus = state()
     bus.emit(event.name, event.schema.parse(data))
@@ -569,11 +577,11 @@ export namespace Config {
     const global = await loadGlobal()
     const project = await loadProject()
     const local = await loadLocal()
-    
+
     // Merge with precedence
     return merge(global, project, local)
   })
-  
+
   export async function get() {
     return await state()
   }
@@ -587,9 +595,9 @@ export namespace Config {
 export class Session {
   constructor(
     private id: string,
-    private config: Config
+    private config: Config,
   ) {}
-  
+
   async send(message: string) {
     // Process user message
     const response = await this.processor.process(message)
@@ -605,21 +613,20 @@ export class Session {
 // src/index.ts
 import yargs from "yargs"
 
-const cli = yargs(process.argv.slice(2))
-  .command({
-    command: "chat [message]",
-    handler: async (args) => {
-      await Instance.provide({
-        directory: process.cwd(),
-        fn: async () => {
-          const session = await Session.current()
-          const response = await session.send(args.message)
-          console.log(response)
-        }
-      })
-    }
-  })
-  
+const cli = yargs(process.argv.slice(2)).command({
+  command: "chat [message]",
+  handler: async (args) => {
+    await Instance.provide({
+      directory: process.cwd(),
+      fn: async () => {
+        const session = await Session.current()
+        const response = await session.send(args.message)
+        console.log(response)
+      },
+    })
+  },
+})
+
 await cli.parse()
 ```
 
@@ -632,12 +639,14 @@ await cli.parse()
 **Decision**: Store all data in `{project}/.opencode/` instead of global `~/.opencode/`
 
 **Rationale**:
+
 - Projects are self-contained
 - Easy to share/backup/delete
 - No conflicts between projects
 - Natural for version control
 
 **Trade-offs**:
+
 - ✅ Better isolation
 - ✅ Easier collaboration
 - ❌ Some duplication across projects
@@ -648,12 +657,14 @@ await cli.parse()
 **Decision**: Use AsyncLocalStorage for context propagation
 
 **Rationale**:
+
 - Automatic context in async operations
 - No need to pass context explicitly
 - Clean API surface
 - Works with concurrent operations
 
 **Trade-offs**:
+
 - ✅ Cleaner code
 - ✅ Automatic propagation
 - ❌ Harder to debug
@@ -664,12 +675,14 @@ await cli.parse()
 **Decision**: Use SQLite databases instead of JSON files
 
 **Rationale**:
+
 - Better performance at scale
 - Atomic operations
 - Future embedding support (sqlite-vec)
 - Single file per session vs thousands of JSON files
 
 **Trade-offs**:
+
 - ✅ Much faster queries
 - ✅ Better concurrency
 - ❌ Binary format (not human-readable)
@@ -680,11 +693,13 @@ await cli.parse()
 **Decision**: Initialize expensive resources only when needed
 
 **Rationale**:
+
 - Faster startup time
 - Lower memory usage
 - Resources only loaded for used features
 
 **Trade-offs**:
+
 - ✅ Better performance
 - ✅ Lower resource usage
 - ❌ More complex code
@@ -695,12 +710,14 @@ await cli.parse()
 **Decision**: Use Solid.js reactive framework for terminal UI
 
 **Rationale**:
+
 - Fine-grained reactivity perfect for TUI updates
 - Small bundle size
 - Good TypeScript support
 - Familiar component model
 
 **Trade-offs**:
+
 - ✅ Excellent performance
 - ✅ Reactive updates
 - ❌ Smaller ecosystem than React
@@ -753,18 +770,17 @@ function Component() {
 
 ```typescript
 // Yargs (current)
-yargs(argv)
-  .command({
-    command: "run <file>",
-    describe: "Run a file",
-    handler: (args) => { }
-  })
+yargs(argv).command({
+  command: "run <file>",
+  describe: "Run a file",
+  handler: (args) => {},
+})
 
 // Commander equivalent
 program
   .command("run <file>")
   .description("Run a file")
-  .action((file) => { })
+  .action((file) => {})
 ```
 
 #### Migrating AI SDK: Vercel AI → LangChain
@@ -774,7 +790,7 @@ program
 import { openai } from "@ai-sdk/openai"
 const result = await generateText({
   model: openai("gpt-4"),
-  prompt: "Hello"
+  prompt: "Hello",
 })
 
 // LangChain equivalent
@@ -789,13 +805,13 @@ const result = await model.invoke("Hello")
 // Zod (current)
 const schema = z.object({
   name: z.string(),
-  age: z.number().min(0)
+  age: z.number().min(0),
 })
 
 // Yup equivalent
 const schema = yup.object({
   name: yup.string().required(),
-  age: yup.number().min(0).required()
+  age: yup.number().min(0).required(),
 })
 ```
 
@@ -818,21 +834,25 @@ app.get("/", (req, res) => res.json({ message: "Hello" }))
 When choosing frameworks for your implementation, consider:
 
 #### Performance Requirements
+
 - **Real-time updates**: Solid.js, Svelte > React, Vue
 - **Startup time**: Bun > Node.js > Deno
 - **Memory usage**: Hono > Express > Nest.js
 
 #### Developer Experience
+
 - **Team familiarity**: React > Solid.js
 - **Ecosystem size**: Node.js > Bun > Deno
 - **Type safety**: Zod > Yup > Joi
 
 #### Production Considerations
+
 - **Stability**: Node.js > Bun (for now)
 - **Monitoring**: Express ecosystem > Hono
 - **Deploy targets**: Node.js (anywhere) > Bun (limited)
 
 #### Maintenance
+
 - **Community**: React, Express (huge) > Solid.js, Hono (growing)
 - **Documentation**: Established frameworks > New ones
 - **Long-term support**: Node.js LTS > Bun (evolving)
@@ -846,6 +866,7 @@ When choosing frameworks for your implementation, consider:
 **Current Issue**: Three overlapping systems (Instance, State, Context)
 
 **Improvement**:
+
 ```typescript
 // Unified state system
 export const AppState = {
@@ -863,6 +884,7 @@ AppState.instance.use().directory
 **Current Issue**: Storage backends are tightly coupled to implementation
 
 **Improvement**:
+
 ```typescript
 interface StorageAdapter {
   get(key: string): Promise<unknown>
@@ -872,9 +894,9 @@ interface StorageAdapter {
 }
 
 // Implementations
-class SqliteAdapter implements StorageAdapter { }
-class RedisAdapter implements StorageAdapter { }
-class S3Adapter implements StorageAdapter { }
+class SqliteAdapter implements StorageAdapter {}
+class RedisAdapter implements StorageAdapter {}
+class S3Adapter implements StorageAdapter {}
 ```
 
 ### 3. Simplify Provider Loading
@@ -882,6 +904,7 @@ class S3Adapter implements StorageAdapter { }
 **Current Issue**: Complex dynamic loading with multiple config sources
 
 **Improvement**:
+
 ```typescript
 // Single source of truth for providers
 const providers = {
@@ -899,6 +922,7 @@ const provider = await providers[name]()
 **Current Issue**: Events use strings, potential for typos
 
 **Improvement**:
+
 ```typescript
 // Type-safe events
 const events = createEventBus({
@@ -917,6 +941,7 @@ events.on("configUpdated", (data) => {
 **Current Issue**: Plugins need complex registration
 
 **Improvement**:
+
 ```typescript
 // Plugin manifest
 interface PluginManifest {
@@ -931,7 +956,7 @@ interface PluginManifest {
 
 // Auto-discovery
 const plugins = await discoverPlugins("./plugins")
-plugins.forEach(p => registerPlugin(p))
+plugins.forEach((p) => registerPlugin(p))
 ```
 
 ### 6. Better Error Recovery
@@ -939,6 +964,7 @@ plugins.forEach(p => registerPlugin(p))
 **Current Issue**: Errors can leave system in inconsistent state
 
 **Improvement**:
+
 ```typescript
 // Transactional operations
 await Transaction.run(async (tx) => {
@@ -953,6 +979,7 @@ await Transaction.run(async (tx) => {
 **Current Issue**: Complex streaming implementation
 
 **Improvement**:
+
 ```typescript
 // Unified streaming interface
 class StreamProcessor {
@@ -976,12 +1003,12 @@ Test individual components in isolation.
 // test/util/context.test.ts
 test("context propagates through async operations", async () => {
   const ctx = createContext<number>("test")
-  
+
   const result = await ctx.provide(42, async () => {
     await sleep(10)
     return ctx.use()
   })
-  
+
   expect(result).toBe(42)
 })
 ```
@@ -994,17 +1021,23 @@ Test component interactions.
 // test/storage/storage.test.ts
 test("storage persists across instance restarts", async () => {
   const dir = await tmpdir()
-  
+
   // First instance
-  await Instance.provide({ directory: dir, fn: async () => {
-    await Storage.write(["test"], { value: 42 })
-  }})
-  
+  await Instance.provide({
+    directory: dir,
+    fn: async () => {
+      await Storage.write(["test"], { value: 42 })
+    },
+  })
+
   // Second instance
-  await Instance.provide({ directory: dir, fn: async () => {
-    const data = await Storage.read(["test"])
-    expect(data.value).toBe(42)
-  }})
+  await Instance.provide({
+    directory: dir,
+    fn: async () => {
+      const data = await Storage.read(["test"])
+      expect(data.value).toBe(42)
+    },
+  })
 })
 ```
 
@@ -1015,11 +1048,14 @@ Test complete workflows.
 ```typescript
 // test/e2e/session.test.ts
 test("complete chat session", async () => {
-  await Instance.provide({ directory: tmpdir(), fn: async () => {
-    const session = new Session()
-    const response = await session.send("Hello")
-    expect(response).toContain("Hi")
-  }})
+  await Instance.provide({
+    directory: tmpdir(),
+    fn: async () => {
+      const session = new Session()
+      const response = await session.send("Hello")
+      expect(response).toContain("Hi")
+    },
+  })
 })
 ```
 
@@ -1041,42 +1077,49 @@ bench("storage write performance", async () => {
 ## Project Timeline
 
 ### Week 1: Foundation
+
 - Set up monorepo structure
 - Implement core utilities
 - Create context system
 - Add logging and errors
 
-### Week 2: Core Systems  
+### Week 2: Core Systems
+
 - Build Instance/State management
 - Add project detection
 - Implement storage layer
 - Create event bus
 
 ### Week 3: Services
+
 - Configuration system
 - Authentication
 - Permission system
 - Plugin architecture
 
 ### Week 4: Features
+
 - AI provider integration
 - Tool implementations
 - Agent system
 - Format/LSP/MCP integration
 
 ### Week 5: Business Logic
+
 - Session management
 - Message processing
 - Prompt construction
 - System prompts
 
 ### Week 6: User Interface
+
 - CLI commands
 - TUI components
 - Theme system
 - Keybind management
 
 ### Week 7: Polish
+
 - Testing
 - Documentation
 - Performance optimization
@@ -1092,20 +1135,20 @@ bench("storage write performance", async () => {
 {
   "dependencies": {
     // Core
-    "yargs": "^18.0.0",        // CLI framework
-    "solid-js": "^1.9.9",       // UI reactivity
-    "zod": "^4.1.8",           // Validation
-    
+    "yargs": "^18.0.0", // CLI framework
+    "solid-js": "^1.9.9", // UI reactivity
+    "zod": "^4.1.8", // Validation
+
     // AI
-    "ai": "^5.0.8",            // AI SDK
+    "ai": "^5.0.8", // AI SDK
     "@ai-sdk/openai": "latest", // OpenAI provider
-    
+
     // Storage
-    "better-sqlite3": "*",      // If using Node.js
-    
+    "better-sqlite3": "*", // If using Node.js
+
     // Utils
-    "ulid": "^3.0.1",          // ID generation
-    "remeda": "^2.26.0"        // FP utilities
+    "ulid": "^3.0.1", // ID generation
+    "remeda": "^2.26.0" // FP utilities
   },
   "devDependencies": {
     "typescript": "^5.8.2",
@@ -1116,31 +1159,31 @@ bench("storage write performance", async () => {
 
 ### Dependencies by Feature
 
-| Feature | Required Dependencies |
-|---------|----------------------|
-| **Basic CLI** | yargs |
-| **TUI** | @opentui/core, @opentui/solid, solid-js |
-| **AI Chat** | ai, @ai-sdk/* providers |
-| **Storage** | SQLite (built-in with Bun) |
-| **Config** | zod, jsonc-parser |
-| **Tools** | @parcel/watcher (file), tree-sitter (code) |
-| **GitHub** | @octokit/rest, @octokit/graphql |
-| **Auth** | @openauthjs/openauth |
-| **MCP/ACP** | @modelcontextprotocol/sdk, @agentclientprotocol/sdk |
+| Feature       | Required Dependencies                               |
+| ------------- | --------------------------------------------------- |
+| **Basic CLI** | yargs                                               |
+| **TUI**       | @opentui/core, @opentui/solid, solid-js             |
+| **AI Chat**   | ai, @ai-sdk/\* providers                            |
+| **Storage**   | SQLite (built-in with Bun)                          |
+| **Config**    | zod, jsonc-parser                                   |
+| **Tools**     | @parcel/watcher (file), tree-sitter (code)          |
+| **GitHub**    | @octokit/rest, @octokit/graphql                     |
+| **Auth**      | @openauthjs/openauth                                |
+| **MCP/ACP**   | @modelcontextprotocol/sdk, @agentclientprotocol/sdk |
 
 ### Version Compatibility Matrix
 
-| Dependency | Min Version | Max Tested | Breaking Changes |
-|------------|------------|------------|------------------|
-| Bun | 1.3.0 | 1.3.3 | None |
-| TypeScript | 5.0.0 | 5.8.2 | None |
-| Solid.js | 1.8.0 | 1.9.9 | Minor API changes |
-| Vercel AI SDK | 4.0.0 | 5.0.8 | v4→v5 major changes |
-| Zod | 3.22.0 | 4.1.8 | v3→v4 method renames |
+| Dependency    | Min Version | Max Tested | Breaking Changes     |
+| ------------- | ----------- | ---------- | -------------------- |
+| Bun           | 1.3.0       | 1.3.3      | None                 |
+| TypeScript    | 5.0.0       | 5.8.2      | None                 |
+| Solid.js      | 1.8.0       | 1.9.9      | Minor API changes    |
+| Vercel AI SDK | 4.0.0       | 5.0.8      | v4→v5 major changes  |
+| Zod           | 3.22.0      | 4.1.8      | v3→v4 method renames |
 
 ## Summary
 
-Building OpenCode from scratch requires careful attention to the layered architecture and dependency management. The Instance/Context pattern is the cornerstone that enables multi-project support and proper isolation. 
+Building OpenCode from scratch requires careful attention to the layered architecture and dependency management. The Instance/Context pattern is the cornerstone that enables multi-project support and proper isolation.
 
 **Key takeaways:**
 
@@ -1155,7 +1198,8 @@ The architecture is sound but has grown organically. A rebuild would be an oppor
 **Estimated effort**: 6-7 weeks for a small team, 10-12 weeks for solo developer
 
 **Critical success factors:**
+
 - Understanding the Instance/Context pattern
-- Maintaining clean layer separation  
+- Maintaining clean layer separation
 - Comprehensive testing at each layer
 - Gradual migration strategy if replacing existing system

@@ -150,14 +150,14 @@ export namespace Storage {
         const projectDir = Instance.directory
         const dir = path.join(projectDir, ".opencode")
         await fs.mkdir(dir, { recursive: true })
-        
+
         log.info("using per-project storage", { dir })
-        
+
         // Initialize multi-database SQLite backend
         // - sessions.db for session metadata
         // - sessions/{sessionID}.db for each session's messages/parts
         const backend: StorageBackend.Backend = new MultiSqliteBackend(projectDir)
-        
+
         return {
           dir,
           backend,
